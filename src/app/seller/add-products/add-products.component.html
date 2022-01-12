@@ -10,7 +10,8 @@
                     <h2 class="mb-0">Add Products</h2>
                 </div>
                 <div class="card-body">
-                    <form #addProductForm  class="form">
+                    
+                    <form #addProductForm = "ngForm" (ngSubmit)="addProduct(addProductForm)" class="form">
                         <div class="form-group">
                             <label for="">Product Name</label>
                             <input  ngModel name="productName" type="text" class="form-control rounded-0" required>
@@ -20,27 +21,28 @@
                             <input  ngModel name="categoryName" type="text" class="form-control rounded-0" required>
                         </div>
                         <div class="form-group">
-                            <label for="">Product Description</label>
-                            <textArea ngModel name="productDescription" rows="5" cols="60" class="form-control rounded-0" required></textArea>
+                            <label for="productDescription">Product Description </label>
+                            <textarea class="form-control rounded-0" ngModel name="productDescription" rows="5" cols="60" required ></textarea>
                         </div>
+                        
                         <div class="form-group">
                             <label for="">Start Date</label>
-                            <input  ngModel name="startDate" type="date" class="form-control rounded-0" required>
+                            <input  ngModel name="startDate" type="date" placeholder="MM/dd/yyyy" class="form-control rounded-0" required>
                         </div>
                         <div class="form-group">
                             <label for="">End Date</label>
-                            <input  ngModel name="endDate" type="date" class="form-control rounded-0" required>
+                            <input  ngModel name="endDate" type="date"  placeholder="MM/dd/yyyy" class="form-control rounded-0" required>
                         </div>
                         <div class="form-group">
                             <label for="">Start Bid</label>
                             <input  ngModel name="startBid" type="number" class="form-control rounded-0" required>
-                        </div>
-                                
-                            <button  type="button" class="btn btn-primary float-right">Add Product</button>
+                        </div>                      
+                            <button (click)="addProduct(addProductForm)" type="button" class="btn btn-primary float-right">Add Product</button>
                     </form>
-                            
                 </div>
             </div>
         </div>  
     </div>
 </section>
+
+<router-outlet></router-outlet>

@@ -25,6 +25,7 @@ import { BidderLoginComponent } from './bidder-login/bidder-login.component';
 import { SellerLoginComponent } from './seller-login/seller-login.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { BidderRegistrationComponent } from './bidder-registration/bidder-registration.component';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -62,7 +63,8 @@ import { BidderRegistrationComponent } from './bidder-registration/bidder-regist
 
 ],
   providers: [
-    RegistrationService
+    RegistrationService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

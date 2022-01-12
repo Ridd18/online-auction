@@ -1,0 +1,24 @@
+<section class="AddProductImage">
+    <div class="row pt-5">
+        <div class="col-md-6 mx-auto">
+            <div class="card-rounded-0"> 
+                <div class="card-header">
+                    <h2 class="mb-0">Add Products</h2>
+                </div>
+                <div class="card-body">
+                    <form #addProductImage = "ngForm" >
+                        <div class="form-group">
+                            <label for="">Product Image</label>
+                            <input type="file" (change)="onImageUpload($event)" >
+                            <input type="button" (click)="imageUploadAction()" value="Upload Image" class="btn1">
+                        </div>
+
+                        <div>
+                            <output *ngIf=successResponse class="success"><b>{{successResponse}}</b></output>
+                        </div>
+                    </form> 
+                </div>
+            </div>
+        </div>  
+    </div>
+</section>

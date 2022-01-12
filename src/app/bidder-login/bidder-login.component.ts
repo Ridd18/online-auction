@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { Buyer } from '../buyer';
 import { RegistrationService } from '../services/registration.service';
 

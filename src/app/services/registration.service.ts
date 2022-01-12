@@ -6,6 +6,7 @@ import { Buyer } from '../buyer';
 import { Seller } from '../seller';
 import { JwtModule } from '@auth0/angular-jwt';
 import { Admin } from '../admin';
+import { Product } from '../product';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,8 @@ export class RegistrationService {
   
 
   private apiServerUrl = environment.apiBaseUrl;
+
+  
   constructor(private http: HttpClient) { }
 
 
@@ -72,5 +75,14 @@ export class RegistrationService {
   // {
   //   return !!localStorage.getItem('token')
   // }
+
+  //Product
+  public addProducts(product: Product): Observable <Product>
+  {
+    return this.http.post<Product>(`${this.apiServerUrl}/auction/product/add`,product)
+  }
+
+
+
 
 }
