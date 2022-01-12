@@ -1,0 +1,46 @@
+<app-header></app-header>
+
+
+
+<section class="AddProducts">
+    <div class="row pt-5">
+        <div class="col-md-6 mx-auto">
+            <div class="card-rounded-0"> 
+                <div class="card-header">
+                    <h2 class="mb-0">Add Products</h2>
+                </div>
+                <div class="card-body">
+                    <form #addProductForm  class="form">
+                        <div class="form-group">
+                            <label for="">Product Name</label>
+                            <input  ngModel name="productName" type="text" class="form-control rounded-0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Category Name</label>
+                            <input  ngModel name="categoryName" type="text" class="form-control rounded-0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Product Description</label>
+                            <textArea ngModel name="productDescription" rows="5" cols="60" class="form-control rounded-0" required></textArea>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Start Date</label>
+                            <input  ngModel name="startDate" type="date" class="form-control rounded-0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">End Date</label>
+                            <input  ngModel name="endDate" type="date" class="form-control rounded-0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Start Bid</label>
+                            <input  ngModel name="startBid" type="number" class="form-control rounded-0" required>
+                        </div>
+                                
+                            <button  type="button" class="btn btn-primary float-right">Add Product</button>
+                    </form>
+                            
+                </div>
+            </div>
+        </div>  
+    </div>
+</section>

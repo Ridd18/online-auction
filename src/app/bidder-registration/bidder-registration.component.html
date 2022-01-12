@@ -4,7 +4,7 @@
 
 <app-navigation></app-navigation>
 
-
+<section class="Registration">
 <div class="row pt-5">
     <div class="col-md-6 mx-auto">
         <div class="card-rounded-0">
@@ -16,7 +16,9 @@
                 <form #addForm ="ngForm" (ngSubmit)="registerUser(addForm)" class="form">
                     <div class="form-group">
                         <label for="">Name</label>
-                        <input  ngModel name="name" type="text" class="form-control rounded-0" required>
+                        <input  ngModel name="name" id="name" type="text" class="form-control rounded-0" required>
+
+
                     </div>
                     <div class="form-group">
                         <label for="">Userame</label>
@@ -42,3 +44,4 @@
         </div>
     </div>  
 </div>
+</section>

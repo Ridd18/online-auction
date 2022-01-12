@@ -3,14 +3,15 @@
 
 <section class="nav">
     <div id="topnav">
-    <nav>
-     <ul>
-         <li><a href="#">Home</a></li>
-         <li><a href="#">My Auctions</a></li>
-         <li><a href="#">About us</a></li>
-         <li><a href="#">Feedback</a></li>
-         <li><a class="nav-link" routerLink="/logout" routerLinkActive="active" target="_blank" >Logout</a></li>
-     </ul>
-    </nav>
+        <nav>
+        <ul>
+            <li><a class="nav-link" routerLink="/seller/sellerHome" routerLinkActive="active" target="_blank">Home</a></li>
+            <li><a href="#">Auctions</a></li>
+            <li><a class="nav-link" routerLink="/seller/addProducts" routerLinkActive="active" target="_blank" >Add Products</a></li>
+            <li><a class="nav-link" routerLink="/logout" routerLinkActive="active" target="_blank" >Logout</a></li>
+        </ul>
+        </nav>
     </div>
-    </section>
+</section>
+
+<router-outlet></router-outlet>

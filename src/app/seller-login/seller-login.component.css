@@ -1,0 +1,30 @@
+.Login
+{
+    background: linear-gradient(rgba(4, 252, 252, 0),#09ded3);
+}
+
+.card-header {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+}
+
+label {
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: black;
+    border-color: #09ded3;
+    display: flex;
+    /* padding-top: 9px; */
+}
+

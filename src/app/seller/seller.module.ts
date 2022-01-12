@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { SellerRoutingModule } from './seller-routing.module';
 import { SellerHomeComponent } from './seller-home/seller-home.component';
 import { SharedModule } from '../shared/shared.module';
+import { AddProductsComponent } from './add-products/add-products.component';
 
 
 @NgModule({
   declarations: [
-    SellerHomeComponent
+    SellerHomeComponent,
+    AddProductsComponent
   ],
   imports: [
     CommonModule,

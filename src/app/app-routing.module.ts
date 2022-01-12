@@ -38,7 +38,8 @@ const routes: Routes = [
   {
     path:'seller',
     loadChildren:() => import('./seller/seller.module').then(m => m.SellerModule)
-  }
+  },
+
   
   
 ];
@@ -49,6 +50,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
-
-

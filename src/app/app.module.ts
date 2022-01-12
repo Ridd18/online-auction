@@ -44,7 +44,7 @@ import { BidderRegistrationComponent } from './bidder-registration/bidder-regist
     BidderLoginComponent,
     SellerLoginComponent,
     AdminLoginComponent,
-    BidderRegistrationComponent
+    BidderRegistrationComponent,
   
   ],
   imports: [
