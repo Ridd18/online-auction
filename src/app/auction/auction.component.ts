@@ -44,7 +44,7 @@ export class AuctionComponent implements OnInit {
 
   
   viewImage() {
-    this.http.get('http://localhost:8090/auction/image/all')
+    this.http.get('http://localhost:8090/auction/image/all') 
       .subscribe(
         res => {
           this.postResponse = res;
@@ -52,8 +52,9 @@ export class AuctionComponent implements OnInit {
           // var bas64String = btoa(String.fromCharCode.apply(null, new Uint8Array(this.postResponse[0].image)));
           // console.log(bas64String);
           
-          this.dbImage = 
-           'data:image/jpeg;base64,' + this.postResponse[0].image;
+          this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
+          console.log(this.dbImage);
+
         }
       );
   }

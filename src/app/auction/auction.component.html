@@ -19,7 +19,7 @@
                                             <img src="[{image?.image}]"  style="height:50px;width:50px">
                                         </div> -->
                                         <div class="product_info" *ngFor= "let product of products">
-                                            <img [src]="dbImage"  style="height:50px;width:50px" *ngIf="dbImage">
+                                            <img [src]="dbImage"  style="height:50px;width:50px" *ngIf=dbImage >
                                             <h5>{{product?.productName}}</h5> 
                                             <p class="m-0">{{product?.productDescription}}</p>
                                             <p class="m-0">{{product?.startDate}}</p>
