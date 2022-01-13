@@ -1,0 +1,87 @@
+.heading
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:  #000;
+    font-family: 'Dancing Script', cursive;
+    font-size: 25px;
+    
+}
+
+.heading h1
+{
+    color: #09ded3;
+}
+
+
+.header-text
+{
+    display: flex;
+    justify-content: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
+    background: linear-gradient(rgba(0,0,0,0.5),#09ded3);
+    background: #09ded3;
+  
+}
+
+.row {
+    margin-top: 5px;
+    --bs-gutter-x: 1.5rem;
+    /* --bs-gutter-y: 0; */
+    display: flex;
+    flex-wrap: wrap;
+    /* margin-top: calc(-1 * var(--bs-gutter-y)); */
+    margin-right: calc(-.5 * var(--bs-gutter-x));
+    margin-left: calc(-.5 * var(--bs-gutter-x));
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+p {
+    width: fit-content;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.col-md-6 {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+.col-6 {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+.product
+{
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product_image
+{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product_info
+{
+    width: 50%;
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+.bg-c-blue 
+{
+    background: linear-gradient(rgba(4, 252, 252, 0),#09ded3);
+}

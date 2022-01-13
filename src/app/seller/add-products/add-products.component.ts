@@ -42,5 +42,22 @@ export class AddProductsComponent implements OnInit {
       err => console.log(err)
     )
   }
+  // addProduct(addProductForm: NgForm)
+  // {
+    
+  //   this.service.saveProduct(addProductForm.value)
+  //   .subscribe(
+  //     res => {
+  //      let recentDate = this.datepipe.transform(this.myDate, 'mm/dd/yyyy');
+  //      console.log(recentDate);
+  //       //  = (<HTMLInputElement>document.getElementById("startDate")).value;
+  //       console.log(res);
+  //       // localStorage.setItem('token', res.token)
+  //       this.router.navigate(['/seller/addProductImage']);
+
+  //     },
+  //     err => console.log(err)
+  //   )
+  // }
 
 }

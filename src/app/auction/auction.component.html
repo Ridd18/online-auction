@@ -1,0 +1,36 @@
+<app-header></app-header>
+
+<div class="heading">
+     
+    <h1>Auction</h1>
+
+</div>
+
+<div class="container" id="main-container" >
+    <div class="row">
+        <div class="col-md-6 col-xl-3" >
+
+                    <div class="card m-b-30">
+                        <div class="card bg-c-blue order-card">
+                            <div class="card-body row">
+                                <div class="col-6 card-title align-self-center mb-0">
+                                    <div class="product" >
+                                        <!-- <div class="product_image"  >
+                                            <img src="[{image?.image}]"  style="height:50px;width:50px">
+                                        </div> -->
+                                        <div class="product_info" *ngFor= "let product of products">
+                                            <img [src]="dbImage"  style="height:50px;width:50px" *ngIf="dbImage">
+                                            <h5>{{product?.productName}}</h5> 
+                                            <p class="m-0">{{product?.productDescription}}</p>
+                                            <p class="m-0">{{product?.startDate}}</p>
+                                            <p class="m-0">{{product?.startBid}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+        </div>
+    </div>
+</div>

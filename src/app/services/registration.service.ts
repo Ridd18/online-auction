@@ -82,7 +82,16 @@ export class RegistrationService {
     return this.http.post<Product>(`${this.apiServerUrl}/auction/product/add`,product)
   }
 
+  public saveProduct(product: Product): Observable<Product>
+  {
+    return this.http.post<Product>(`${this.apiServerUrl}/auction/product/save`,product)
+  }
 
+
+  public getProducts(): Observable<Product[]>
+  {
+    return this.http.get<Product[]>(`${this.apiServerUrl}/auction/product/all`);
+  }
 
 
 }

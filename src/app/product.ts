@@ -8,6 +8,6 @@ export class Product{
     startDate: Date;
     endDate: Date;
     startBid: number;
-   
+   productImage:String;
 }
 

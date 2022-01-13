@@ -33,6 +33,7 @@ export class AddProductImageComponent implements OnInit {
   {
     const imageFormData = new FormData();
     imageFormData.append('image', this.uploadedImage, this.uploadedImage.name);
+    // this.service.saveImage(imageFormData)
     this.httpClient.post('http://localhost:8090/auction/image/upload', imageFormData , { observe: 'response' })
 
     .subscribe((response) => {
