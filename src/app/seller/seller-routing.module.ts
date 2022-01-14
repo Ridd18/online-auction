@@ -4,6 +4,7 @@ import { AuctionComponent } from '../auction/auction.component';
 import { AddProductImageComponent } from './add-product-image/add-product-image.component';
 import { AddProductsComponent } from './add-products/add-products.component';
 import { SellerHomeComponent } from './seller-home/seller-home.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
 
 const routes: Routes = [
 
@@ -16,6 +17,8 @@ const routes: Routes = [
           { path: 'addProducts', component: AddProductsComponent},
           { path: 'sellerHome', component: SellerHomeComponent },
           { path: 'addProductImage', component: AddProductImageComponent},
+          { path: 'updateProducts', component: UpdateProductComponent},
+
   ]
 },
 ];

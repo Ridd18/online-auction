@@ -84,14 +84,26 @@ export class RegistrationService {
 
   public saveProduct(product: Product): Observable<Product>
   {
-    return this.http.post<Product>(`${this.apiServerUrl}/auction/product/save`,product)
+    return this.http.post<Product>(`${this.apiServerUrl}/auction/product/save`,product);
   }
-
 
   public getProducts(): Observable<Product[]>
   {
     return this.http.get<Product[]>(`${this.apiServerUrl}/auction/product/all`);
   }
+
+  public deleteProduct(Productid: number): Observable<void> 
+  {
+    return this.http.delete<void>(`${this.apiServerUrl}/auction/product/delete/${Productid}`);
+
+  }
+
+
+  public updateProduct(product: Product): Observable<Product>
+  {
+    return this.http.put<Product>(`${this.apiServerUrl}/auction/product/update`, product);
+  }
+
 
 
 }

@@ -1,28 +1,28 @@
-<app-header></app-header>
 
-
-
-<section class="AddProducts">
+<section class="UpdateProducts">
     <div class="row pt-5">
         <div class="col-md-6 mx-auto">
             <div class="card-rounded-0"> 
                 <div class="card-header">
-                    <h2 class="mb-0">Add Products</h2>
+                    <h2 class="mb-0">Update Product</h2>
                 </div>
-                <div class="card-body">
+                <div class="card-body" >
                     
-                    <form #addProductForm = "ngForm" (ngSubmit)="addProduct(addProductForm)" class="form" enctype="multipart/form-data">
+                    <form #updateProductForm = "ngForm" class="form"  >
                         <div class="form-group">
                             <label for="">Product Name</label>
-                            <input  ngModel name="productName" type="text" class="form-control rounded-0" required>
+                            <input  ngModel = "{{editProduct?.productName}}" name="productName" type="text" class="form-control rounded-0" required>
                         </div>
+
+                        <input type="hidden" name="id" ngModel="{{editProduct?.product_id}}" class="form-control" id="id" placeholder="ID">
+
                         <div class="form-group">
                             <label for="">Category Name</label>
-                            <input  ngModel name="categoryName" type="text" class="form-control rounded-0" required>
+                            <input  ngModel = "{{editProduct?.categoryName}}" name="categoryName" type="text" class="form-control rounded-0" required>
                         </div>
                         <div class="form-group">
                             <label for="productDescription">Product Description </label>
-                            <textarea class="form-control rounded-0" ngModel name="productDescription" rows="5" cols="60" required ></textarea>
+                            <textarea class="form-control rounded-0" ngModel = "{{editProduct?.productDescription}}" name="productDescription" rows="5" cols="60" required ></textarea>
                         </div>
                         <!-- <div class="form-group">
                             <label for="">Product Image </label>
@@ -32,17 +32,17 @@
                         
                         <div class="form-group">
                             <label for="">Start Date</label>
-                            <input  ngModel name="startDate" type="date" placeholder="MM/dd/yyyy" class="form-control rounded-0" required>
+                            <input  ngModel = "{{editProduct?.startDate}}" name="startDate" type="date" placeholder="MM/dd/yyyy" class="form-control rounded-0" required>
                         </div>
                         <div class="form-group">
                             <label for="">End Date</label>
-                            <input  ngModel name="endDate" type="date"  placeholder="MM/dd/yyyy" class="form-control rounded-0" required>
+                            <input  ngModel = "{{editProduct?.endDate}}" name="endDate" type="date"  placeholder="MM/dd/yyyy" class="form-control rounded-0" required>
                         </div>
                         <div class="form-group">
                             <label for="">Start Bid</label>
-                            <input  ngModel name="startBid" type="number" class="form-control rounded-0" required>
+                            <input  ngModel = "{{editProduct?.startBid}}" name="startBid" type="number" class="form-control rounded-0" required>
                         </div>                      
-                            <button  type="button" class="btn btn-primary float-right">Add Product</button>
+                            <button (click)="onUpdateProduct(updateProductForm.value)" type="button" class="btn btn-primary float-right">Save Changes</button>
                     </form>
                 </div>
             </div>

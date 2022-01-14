@@ -22,6 +22,7 @@ export class AuctionComponent implements OnInit {
   postResponse: any;
   successResponse: string;
   image: any;
+  img: any;
 
   constructor(private router: Router, private service: RegistrationService, private http: HttpClient) { }
 
@@ -52,11 +53,15 @@ export class AuctionComponent implements OnInit {
           // var bas64String = btoa(String.fromCharCode.apply(null, new Uint8Array(this.postResponse[0].image)));
           // console.log(bas64String);
           
-          this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
+          this.img = this.postResponse.image;
+          this.dbImage = 'data:image/jpeg;base64,' + this.img;
           console.log(this.dbImage);
 
         }
       );
   }
+
+
+
 
 }

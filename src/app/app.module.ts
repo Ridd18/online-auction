@@ -31,7 +31,6 @@ import { AuctionComponent } from './auction/auction.component';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

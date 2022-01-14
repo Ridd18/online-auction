@@ -6,13 +6,15 @@ import { SellerHomeComponent } from './seller-home/seller-home.component';
 import { SharedModule } from '../shared/shared.module';
 import { AddProductsComponent } from './add-products/add-products.component';
 import { AddProductImageComponent } from './add-product-image/add-product-image.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
 
 
 @NgModule({
   declarations: [
     SellerHomeComponent,
     AddProductsComponent,
-    AddProductImageComponent
+    AddProductImageComponent,
+    UpdateProductComponent
   ],
   imports: [
     CommonModule,
