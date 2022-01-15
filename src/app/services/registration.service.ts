@@ -7,6 +7,7 @@ import { Seller } from '../seller';
 import { JwtModule } from '@auth0/angular-jwt';
 import { Admin } from '../admin';
 import { Product } from '../product';
+import { Image } from '../image';
 
 @Injectable({
   providedIn: 'root'
@@ -82,11 +83,7 @@ export class RegistrationService {
     return this.http.post<Product>(`${this.apiServerUrl}/auction/product/add`,product)
   }
 
-  public saveProduct(product: Product): Observable<Product>
-  {
-    return this.http.post<Product>(`${this.apiServerUrl}/auction/product/save`,product);
-  }
-
+ 
   public getProducts(): Observable<Product[]>
   {
     return this.http.get<Product[]>(`${this.apiServerUrl}/auction/product/all`);
@@ -98,12 +95,25 @@ export class RegistrationService {
 
   }
 
+  public getProduct(productid: number): Observable<Product>
+  {
+    return this.http.get<Product>(`${this.apiServerUrl}/auction/product/find/${productid}`);
+  }
+
+  public editProduct(id: number, value: any): Observable<Object> 
+  {
+    return this.http.put(`${this.apiServerUrl}/auction/product/edit/${id}`, value);
+  }
 
   public updateProduct(product: Product): Observable<Product>
   {
     return this.http.put<Product>(`${this.apiServerUrl}/auction/product/update`, product);
   }
 
-
+//image
+public saveProductImage(imageFile : File): Observable<Image>
+{
+  return this.http.post<Image>(`${this.apiServerUrl}/auction/image/save`,imageFile);
+}
 
 }

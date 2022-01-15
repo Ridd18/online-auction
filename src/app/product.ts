@@ -1,7 +1,7 @@
 import { DatePipe } from "@angular/common";
 
 export class Product{
-    product_id: number;
+    id: number;
     productName: string;
     categoryName: string;
     productDescription: string;
@@ -9,5 +9,6 @@ export class Product{
     endDate: Date;
     startBid: number;
    productImage:String;
+  
 }
 

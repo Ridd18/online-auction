@@ -11,6 +11,7 @@ import { BidderLoginComponent } from './bidder-login/bidder-login.component';
 import { SellerLoginComponent } from './seller-login/seller-login.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { BidderRegistrationComponent } from './bidder-registration/bidder-registration.component';
+import { AuctionComponent } from './auction/auction.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:'login', component: LoginComponent},
   {path:'logout', component: LogoutComponent},
   {path:'registration', component: RegistrationComponent},
+  {path:'auction', component: AuctionComponent},
   {path:'bidderRegistration', component: BidderRegistrationComponent},
   {path:'sellerRegistration' , component: SellerRegistrationComponent},
   {path:'bidderLogin', component: BidderLoginComponent},

@@ -14,6 +14,13 @@ import { RegistrationService } from 'src/app/services/registration.service';
 export class AddProductsComponent implements OnInit {
 
 
+  uploadedImage: File;
+  dbImage: any;
+  postResponse: any;
+  successResponse: string;
+  image: any;
+
+
   myDate: Date;  
 
   public product: Product[];
@@ -25,9 +32,18 @@ export class AddProductsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public onImageUpload(event) {
+    this.uploadedImage = event.target.files[0];
+  }
+
   addProduct(addProductForm: NgForm)
   {
-    
+    // let formData = new FormData();
+    // formData.append('imageFile', this.uploadedImage, this.uploadedImage.name);
+
+    // formData.append('body', new Blob([JSON.stringify(addProductForm.value)], { type: 'text/plain' }));
+
+
     this.service.addProducts(addProductForm.value)
     .subscribe(
       res => {
@@ -42,22 +58,19 @@ export class AddProductsComponent implements OnInit {
       err => console.log(err)
     )
   }
-  // addProduct(addProductForm: NgForm)
+
+  // imageUploadAction()
   // {
-    
-  //   this.service.saveProduct(addProductForm.value)
-  //   .subscribe(
-  //     res => {
-  //      let recentDate = this.datepipe.transform(this.myDate, 'mm/dd/yyyy');
-  //      console.log(recentDate);
-  //       //  = (<HTMLInputElement>document.getElementById("startDate")).value;
-  //       console.log(res);
-  //       // localStorage.setItem('token', res.token)
-  //       this.router.navigate(['/seller/addProductImage']);
+
+  //   this.service.saveProduct(this.uploadedImage)
+  //   .subscribe((response) => {
+  //       console.log(response);
+  //       this.router.navigate(['/seller/sellerHome']);
 
   //     },
   //     err => console.log(err)
-  //   )
+  //   );
   // }
+  
 
 }

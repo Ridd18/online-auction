@@ -1,6 +1,6 @@
 
 <section class="UpdateProducts">
-    <div class="row pt-5">
+    <div class="row pt-5"  id="editProductModel" tabindex="-1" role="dialog">
         <div class="col-md-6 mx-auto">
             <div class="card-rounded-0"> 
                 <div class="card-header">
@@ -8,13 +8,13 @@
                 </div>
                 <div class="card-body" >
                     
-                    <form #updateProductForm = "ngForm" class="form"  >
+                    <form #updateProductForm = "ngForm" class="form"  (ngSubmit)= "onUpdateProduct()" >
                         <div class="form-group">
                             <label for="">Product Name</label>
                             <input  ngModel = "{{editProduct?.productName}}" name="productName" type="text" class="form-control rounded-0" required>
                         </div>
 
-                        <input type="hidden" name="id" ngModel="{{editProduct?.product_id}}" class="form-control" id="id" placeholder="ID">
+                        <input type="hidden" name="id" ngModel="{{editProduct?.id}}" class="form-control" id="id" placeholder="ID">
 
                         <div class="form-group">
                             <label for="">Category Name</label>
@@ -42,7 +42,7 @@
                             <label for="">Start Bid</label>
                             <input  ngModel = "{{editProduct?.startBid}}" name="startBid" type="number" class="form-control rounded-0" required>
                         </div>                      
-                            <button (click)="onUpdateProduct(updateProductForm.value)" type="button" class="btn btn-primary float-right">Save Changes</button>
+                            <button type="button" class="btn btn-primary float-right">Save Changes</button>
                     </form>
                 </div>
             </div>

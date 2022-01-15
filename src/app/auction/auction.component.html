@@ -22,7 +22,7 @@
                                 </div>
                             </div>
                             <div class="float-right btn-group btn-group-sm">
-                                <a  routerLink="/seller/updateProducts" class="btn btn-secondary tooltips" 
+                                <a routerLink="/seller/updateProducts" class="btn btn-secondary tooltips" 
                                  data-original-title="Update">
                                     <i class="glyphicon glyphicon-home"></i>
                                     Update
@@ -30,8 +30,60 @@
                             </div>
                         </div>
                     </div>
-
+                    <!-- (click)=toggleDisplayDivIf() -->
         </div>
     </div>
 </div>
+<div *ngIf="!isShowDivIf" class="toggle">
+<section class="UpdateProducts">
+    <div class="row pt-5"  id="editProductModel" tabindex="-1" role="dialog">
+        <div class="col-md-6 mx-auto">
+            <div class="card-rounded-0"> 
+                <div class="card-header">
+                    <h2 class="mb-0">Update Product</h2>
+                </div>
+                <div class="card-body" >
+                    
+                    <form #updateProductForm = "ngForm" class="form" (ngSubmit)= "onUpdateProduct()" >
+                        <div class="form-group">
+                            <label for="">Product Name</label>
+                            <input  ngModel = "{{editProduct?.productName}}" name="productName" type="text" class="form-control rounded-0" required>
+                        </div>
 
+                        <!-- <input type="hidden" name="id" ngModel="{{editProduct?.id}}" class="form-control" id="id" placeholder="ID"> -->
+
+                        <div class="form-group">
+                            <label for="">Category Name</label>
+                            <input  ngModel = "{{editProduct?.categoryName}}" name="categoryName" type="text" class="form-control rounded-0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="productDescription">Product Description </label>
+                            <textarea class="form-control rounded-0" ngModel = "{{editProduct?.productDescription}}" name="productDescription" rows="5" cols="60" required ></textarea>
+                        </div>
+                        <!-- <div class="form-group">
+                            <label for="">Product Image </label>
+                            <input type="file" ngModel name="productImage " class="form-control rounded-0">
+                           
+                        </div> -->
+                        
+                        <div class="form-group">
+                            <label for="">Start Date</label>
+                            <input  ngModel = "{{editProduct?.startDate}}" name="startDate" type="date" placeholder="MM/dd/yyyy" class="form-control rounded-0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">End Date</label>
+                            <input  ngModel = "{{editProduct?.endDate}}" name="endDate" type="date"  placeholder="MM/dd/yyyy" class="form-control rounded-0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Start Bid</label>
+                            <input  ngModel = "{{editProduct?.startBid}}" name="startBid" type="number" class="form-control rounded-0" required>
+                        </div>                      
+                            <button  type="button" class="btn btn-primary float-right">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>  
+    </div>
+</section>
+</div>
+<router-outlet></router-outlet>
