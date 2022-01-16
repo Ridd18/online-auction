@@ -95,9 +95,9 @@ export class RegistrationService {
 
   }
 
-  public getProduct(productid: number): Observable<Product>
+  public getProduct(id: number): Observable<Product>
   {
-    return this.http.get<Product>(`${this.apiServerUrl}/auction/product/find/${productid}`);
+    return this.http.get<Product>(`${this.apiServerUrl}/auction/product/find/${id}`);
   }
 
   public editProduct(id: number, value: any): Observable<Object> 

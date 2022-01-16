@@ -11,13 +11,15 @@ const routes: Routes = [
   // { path: '', component: SellerHomeComponent },
   { path: 'addProducts', component: AddProductsComponent},
   { path: 'sellerHome', component: SellerHomeComponent },
-  { path: 'viewAuction' , component: AuctionComponent},
+  { path: 'viewAuction' , component: AuctionComponent },
+  { path: 'viewAuction/:id' , component: AuctionComponent },
+ 
   { path: '',   component: SellerHomeComponent,
         children :[
           { path: 'addProducts', component: AddProductsComponent},
           { path: 'sellerHome', component: SellerHomeComponent },
           { path: 'addProductImage', component: AddProductImageComponent},
-          { path: 'updateProducts', component: UpdateProductComponent},
+          { path: 'updateProducts/:id', component: UpdateProductComponent},
 
   ]
 },
