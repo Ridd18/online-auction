@@ -8,6 +8,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { Admin } from '../admin';
 import { Product } from '../product';
 import { Image } from '../image';
+import { Feedback } from '../feedback';
 
 @Injectable({
   providedIn: 'root'
@@ -111,9 +112,22 @@ export class RegistrationService {
   }
 
 //image
-public saveProductImage(imageFile : File): Observable<Image>
+  public saveProductImage(imageFile : File): Observable<Image>
+  {
+    return this.http.post<Image>(`${this.apiServerUrl}/auction/image/save`,imageFile);
+  }
+  
+//feedback
+public addFeedback(feedback: Feedback): Observable <Feedback>
 {
-  return this.http.post<Image>(`${this.apiServerUrl}/auction/image/save`,imageFile);
+  return this.http.post<Feedback>(`${this.apiServerUrl}/auction/feedback/add`,feedback)
 }
+
+
+public getFeedbacks(): Observable<Feedback[]>
+{
+  return this.http.get<Feedback[]>(`${this.apiServerUrl}/auction/feedback/all`);
+}
+
 
 }

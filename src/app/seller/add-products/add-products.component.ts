@@ -47,7 +47,7 @@ export class AddProductsComponent implements OnInit {
     this.service.addProducts(addProductForm.value)
     .subscribe(
       res => {
-       let recentDate = this.datepipe.transform(this.myDate, 'mm/dd/yyyy');
+       let recentDate = this.datepipe.transform(this.myDate, 'yyyy-MM-dd');
        console.log(recentDate);
         //  = (<HTMLInputElement>document.getElementById("startDate")).value;
         console.log(res);

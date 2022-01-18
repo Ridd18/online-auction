@@ -27,6 +27,9 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { BidderRegistrationComponent } from './bidder-registration/bidder-registration.component';
 import { DatePipe } from '@angular/common';
 import { AuctionComponent } from './auction/auction.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { FeedbackHomeComponent } from './feedback-home/feedback-home.component';
 
 
 
@@ -47,6 +50,9 @@ import { AuctionComponent } from './auction/auction.component';
     AdminLoginComponent,
     BidderRegistrationComponent,
     AuctionComponent,
+    AboutUsComponent,
+    FeedbackComponent,
+    FeedbackHomeComponent,
   
   ],
   imports: [

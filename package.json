@@ -20,6 +20,7 @@
     "@angular/router": "~13.0.0",
     "@auth0/angular-jwt": "^5.0.2",
     "angular-jwt": "^0.1.11",
+    "font-awesome": "^4.7.0",
     "jquery": "^3.6.0",
     "jsonwebtoken": "^8.5.1",
     "ngx-slick-carousel": "^0.5.1",

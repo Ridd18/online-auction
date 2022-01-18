@@ -1,0 +1,33 @@
+<app-header></app-header>
+<app-navigation></app-navigation>
+
+
+<div class="header-text">
+    <h1> Feedback </h1>
+</div>
+
+<div class="AddFeedback">
+    
+</div>
+
+<div class="container" id="main-container">
+    <div class="row">
+        <div *ngFor= "let feedback of feedbacks" class="col-md-6 col-xl-3">
+
+                    <div class="card m-b-30">
+                        <div class="card bg-c-blue order-card">
+                            <div class="card-body row">
+                                <div class="col-6 card-title align-self-center mb-0">
+                                    <h5><p><b>Email: </b>{{feedback?.email}}</p></h5>
+                                    <p class="m-0"><b>First Name: </b>{{feedback?.firstName}}</p>
+                                    <p class="m-0"><b>Last Name:: </b>{{feedback?.lastName}}</p>
+                                    <p class="m-0"><b>Feedback: </b>{{feedback?.feedback}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+        </div>
+    </div>
+</div>
+
