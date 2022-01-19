@@ -9,6 +9,6 @@ export class Product{
     endDate: Date;
     startBid: number;
    productImage:String;
-  
+   productImageName:String;
 }
 

@@ -70,3 +70,39 @@ p {
     margin-right: auto;
     margin-left: auto;
 }
+
+
+.links{
+    margin: 15px 0;
+}
+.links li
+{
+    border: 2px solid #4158D0;
+    list-style: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    width: fit-content;
+    text-align: center;
+}
+.links li a
+{
+    text-transform: uppercase;
+     color: #09ded3;
+    
+    text-decoration: none;
+}
+
+
+.links li:hover{
+    border-color: #09ded3;
+}
+
+.AddFeedback
+{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: center;
+    align-items: center;
+    background: black;
+}

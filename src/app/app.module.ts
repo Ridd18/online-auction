@@ -30,6 +30,7 @@ import { AuctionComponent } from './auction/auction.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { FeedbackHomeComponent } from './feedback-home/feedback-home.component';
+import { ViewProductComponent } from './view-product/view-product.component';
 
 
 
@@ -53,6 +54,7 @@ import { FeedbackHomeComponent } from './feedback-home/feedback-home.component';
     AboutUsComponent,
     FeedbackComponent,
     FeedbackHomeComponent,
+    ViewProductComponent,
   
   ],
   imports: [

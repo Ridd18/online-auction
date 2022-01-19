@@ -1,6 +1,6 @@
 
 <app-header></app-header>
-<app-navigation></app-navigation>
+<!-- <app-navigation></app-navigation> -->
 
 
 <!DOCTYPE html>
@@ -23,13 +23,13 @@
             <div class = "content">
                 <h2>About Us</h2>
                 <span><!-- line here --></span>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis aspernatur voluptas inventore ab voluptates nostrum minus illo laborum harum laudantium earum ut, temporibus fugiat sequi explicabo facilis unde quos corporis!</p>
+                <p>The main Purpose of Online Auction is to build a user-friendly auctioning website, where user will be able to auction any product which is available nearby or anywhere in the world. By making auction through this application, it will help to reach maximum of buyers bidding in local area. To Create a panel where a seller receives requests from a buyer and sends back feedback. The scope of this application to build a user-friendly auctioning website, where user will be able to auctioned any product which is available nearby or anywhere in the world.</p>
                 <ul class = "links">
-                    <li><a href = "#">work</a></li>
+                    <li><a class="nav-link" routerLink="/home" routerLinkActive="active" target="_blank">Home</a></li>
                    
-                    <li><a href = "#">service</a></li>
+                    <li><a class="nav-link" routerLink="" routerLinkActive="active" target="_blank">Contact</a></li>
                    
-                    <li><a href = "#">contact</a></li>
+                    <li><a class="nav-link" routerLink="/feedbackHome" routerLinkActive="active" target="_blank">Feedback</a></li>
                 </ul>
                 <ul class = "icons">
                     <li>
@@ -50,6 +50,6 @@
         </section><br><br>
          </body>
 </html>
-
+<router-outlet></router-outlet>
 <app-footer></app-footer>
 

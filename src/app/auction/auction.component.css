@@ -98,3 +98,58 @@ p {
 {
     background: linear-gradient(rgba(4, 252, 252, 0),#09ded3);
 }
+
+.btn-group, .btn-group-vertical
+ {
+    position: relative;
+    display: flex;
+    vertical-align: middle;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.links{
+    margin: 15px 0;
+}
+.links li
+{
+    border: 2px solid black;
+    list-style: none;
+    border-radius: 5px;
+    /* padding: 10px 15px; */
+    width: fit-content;
+    text-align: center;
+}
+.links li a
+{
+    text-transform: uppercase;
+     color: #000;
+    
+    text-decoration: none;
+}
+
+
+.links li:hover{
+    border-color: #09ded3;
+}
+
+.productFunctions
+{
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: center;
+    align-items: center;
+    /* background: black; */
+}
+
+ul {
+    list-style-type: none;
+    display: inline-block;
+    /* padding: 20px; */
+}
