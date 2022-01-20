@@ -16,6 +16,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { FeedbackHomeComponent } from './feedback-home/feedback-home.component';
 import { ViewProductComponent } from './view-product/view-product.component';
+import { BidComponent } from './bid/bid.component';
 
 
 const routes: Routes = [
@@ -24,16 +25,17 @@ const routes: Routes = [
   {path:'login', component: LoginComponent},
   {path:'logout', component: LogoutComponent},
   {path:'registration', component: RegistrationComponent},
-  {path:'auction', component: AuctionComponent},
   {path:'bidderRegistration', component: BidderRegistrationComponent},
   {path:'sellerRegistration' , component: SellerRegistrationComponent},
   {path:'bidderLogin', component: BidderLoginComponent},
   {path:'sellerLogin', component: SellerLoginComponent},
   {path:'adminLogin', component: AdminLoginComponent},
+  {path:'auction', component: AuctionComponent},
   {path:'aboutUs', component: AboutUsComponent },
   {path:'feedback', component: FeedbackComponent },
   {path:'feedbackHome', component: FeedbackHomeComponent },
   {path:'viewProduct/:id', component: ViewProductComponent },
+  {path:'addBid', component: BidComponent},
   { 
     path: 'admin', 
     loadChildren: () => import('./administration/administration.module').then(m => m.AdministrationModule) 

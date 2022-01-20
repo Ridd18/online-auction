@@ -90,4 +90,16 @@ export class ViewProductComponent implements OnInit {
       error => console.log(error)
       );
     }
+
+   public goBackToAuction()
+   {
+    this.router.navigate(['/auction']);
+   }
+
+   gotToAddBid()
+   {
+    this.router.navigate(['/addBid']);
+   }
+
+
 }
