@@ -7,7 +7,7 @@ import { HeaderComponent } from '../header/header.component';
 
 @NgModule({
   declarations: [
-    HeaderComponent,
+    HeaderComponent,  
   ],
   imports: [
     CommonModule,
