@@ -234,3 +234,25 @@ text-align:center ;
     margin: auto;
     background: linear-gradient(rgba(4, 252, 252, 0),#09ded3);
 }
+
+/* form
+{
+  background-color: #202124;
+    color: white;
+} */
+
+[type=search] {
+  outline-offset: -2px;
+  -webkit-appearance: textfield;
+  border-radius: 12px;
+  /* background-color: #202124; */
+  border: none;
+    margin: 0 5px;
+    outline: none;
+    padding: 12px 16px;
+  
+    cursor: pointer;
+    border-radius: 12px;
+    width: fit-content;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}

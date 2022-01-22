@@ -1,19 +1,20 @@
 <app-header></app-header>
 
-
-
-
-
 <div class="main" >
     <div class="header-text">
         <h1> Auction </h1>
         <h1>Products</h1>
     </div>
 <div class="myBtnContainer">
-  <button class="btn active" onclick="filterSelection('all')">All</button>
-  <button class="btn" onclick="filterSelection('Laptop')"> Laptops</button>
+
+   <button class="btn active" onclick="filterSelection('all')">All</button>
+   <form class="search"> 
+    <input type="search" (ngModelChange)= "searchProducts(key.value)" #key = "ngModel" ngModel 
+    name="key" id="searchName" class="searchProduct" placeholder="Search Product">
+  </form>
+   <!-- <button class="btn" onclick="filterSelection('Laptop')"> Laptops</button>
   <button class="btn" onclick="filterSelection('Mobile')">Mobiles</button> 
-  <button class="btn" onclick="filterSelection('Watch')">Watches</button> 
+  <button class="btn" onclick="filterSelection('Watch')">Watches</button>  --> 
 </div>
 
 

@@ -11,6 +11,7 @@ import { RegistrationService } from '../services/registration.service';
 })
 export class AdminLoginComponent implements OnInit {
 
+  adminUser = 'admin';
 
   msg = ''; 
 
@@ -20,7 +21,8 @@ export class AdminLoginComponent implements OnInit {
 
   constructor(private router: Router, private loginService: RegistrationService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+  
   }
 
   loginUser(loginForm: NgForm)
@@ -30,6 +32,7 @@ export class AdminLoginComponent implements OnInit {
     .subscribe(
       res => {
         console.log(res);
+        localStorage.setItem('Admin',this.adminUser)
       
       this.router.navigate(['admin'])
     },

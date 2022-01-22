@@ -11,6 +11,8 @@ import { RegistrationService } from '../services/registration.service';
 })
 export class SellerLoginComponent implements OnInit {
 
+  sellerUser='Seller';
+
   msg = ''; 
 
   public sellers: Seller[];
@@ -26,6 +28,7 @@ export class SellerLoginComponent implements OnInit {
     .subscribe(
       res => {
         console.log(res);
+        localStorage.setItem('Seller',this.sellerUser)
         
       this.router.navigate(['seller'])
     },

@@ -12,6 +12,8 @@ import { RegistrationService } from '../services/registration.service';
 })
 export class BidderLoginComponent implements OnInit {
 
+  bidderUser= 'Bidder';
+
   msg = ''; 
 
 
@@ -29,7 +31,8 @@ export class BidderLoginComponent implements OnInit {
     .subscribe(
       res => {
         console.log(res);
-      
+        localStorage.setItem('Bidder',this.bidderUser)
+    
       this.router.navigate(['bidder'])
     },
 

@@ -32,7 +32,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { FeedbackHomeComponent } from './feedback-home/feedback-home.component';
 import { ViewProductComponent } from './view-product/view-product.component';
 import { BidComponent } from './bid/bid.component';
-
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 
@@ -75,7 +75,8 @@ import { BidComponent } from './bid/bid.component';
 ],
   providers: [
     RegistrationService,
-    DatePipe
+    DatePipe,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

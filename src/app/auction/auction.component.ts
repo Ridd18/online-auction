@@ -99,6 +99,27 @@ export class AuctionComponent implements OnInit {
   }
 
 
+  public searchProducts(key: string): void
+  {
+    console.log(key);
+    const results: Product[]= [];
+    for( const product of this.products)
+    {
+      if(
+        (product.productName.toLowerCase().indexOf(key.toLowerCase()) !== -1)
+        || (product.categoryName.toLowerCase().indexOf(key.toLowerCase()) !== -1)
+        ) {
+        results.push(product);
+      }
+         
+    }
+    this.products = results;
+    if (results.length === 0 || !key)
+     {
+      this.getProducts();
+    }
+  }
+
 
 
 }
