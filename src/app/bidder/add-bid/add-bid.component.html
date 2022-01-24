@@ -1,0 +1,40 @@
+<app-header></app-header>
+
+
+<input type="hidden" name="id" ngModel="{{product?.id}}" class="form-control" id="id" placeholder="ID">
+<div class="bid">
+    <div class="main">
+        <div class="bid-content">
+            <div class="card">
+                <ul class="list-group list-group-flash">
+                    <li class="list-group-item">
+                        <strong>Start Bid:</strong>
+                        <span>{{product?.startBid}}</span>
+                    </li>
+
+                    <li class="list-group-item" *ngFor = "let bid of webSocketService.bidMessage">
+
+                        <strong>{{bid?.user}}:</strong>
+                        <span>{{bid?.bidAmount}}</span>
+                    </li>
+
+                </ul>   
+            </div>
+        </div>
+    </div>
+    <div class="form">
+        <form  #addBidForm = "ngForm" (ngSubmit)="addBid(addBidForm)" class="form">
+            <div class="bid-send row">
+                <div class="col-2">
+                    <input type="text" class="form-control" name="user" id="input-user" ngModel>
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control" name="bidAmount" id="input-bid" ngModel>
+                </div>
+                <div class="col-2">
+                    <button type="submit" class="btn btn-primary" >ADD BID</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

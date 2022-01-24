@@ -1,0 +1,58 @@
+<app-header></app-header>
+
+<div class="header-text">
+    <h1> Bidding Section </h1>
+</div>
+
+<input type="hidden" name="id" ngModel="{{product?.id}}" class="form-control" id="id" placeholder="ID">
+
+<!-- <img [src]="['../assets/photos/' + product?.productImageName+'.jpg']" style="height: 100px; width: 100px;"> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Product Page || Learning Robo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  </head>
+  <body>
+    <div class = "card-wrapper">
+      <div class = "card">
+        <!-- card left -->
+        <div class = "product-imgs">
+          <div class = "img-display">
+            <img [src]="['../assets/photos/' + product?.productImageName+'.jpg']">
+          </div>
+        </div>
+        <!-- card right -->
+        <div class = "product-content">
+          <h2 class = "product-title">{{product?.productName}} </h2>
+          <div class = "product-price">
+            <p class = "start-bid"> Start Bid: <span></span>{{product?.startBid}} </p>
+          </div>
+          <div class = "product-detail">
+            <h2>about this item: </h2>
+            <b><p class="product-category">Product Category: &nbsp; {{product?.categoryName}}</p></b>
+            <b><p class="product-description">Product Description: &nbsp; {{product?.productDescription}}</p></b>
+            <b><p class="product-startDate">Product Start Date: &nbsp; {{product?.startDate}}</p></b>
+            <b><p class="product-endDate">Product End Date: &nbsp; {{product?.endDate}}</p></b>
+            <br>
+            <b><input type="checkbox"> I agree to all terms and conditions. </b>
+          </div>
+          <div class = "purchase-info">
+              
+            <button type = "button" class = "btn" (click)="gotToAddNewBid()" >
+              Place your Bid &nbsp; <i class = "fas fa fa-plus"></i>
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </body>
+</html>
+
+<!-- <app-add-bid></app-add-bid> -->

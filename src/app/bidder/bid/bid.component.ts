@@ -1,15 +1,15 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Product } from '../product';
-import { RegistrationService } from '../services/registration.service';
+import { Product } from 'src/app/product';
+import { RegistrationService } from 'src/app/services/registration.service';
 
 @Component({
-  selector: 'app-view-product',
-  templateUrl: './view-product.component.html',
-  styleUrls: ['./view-product.component.css']
+  selector: 'app-bid',
+  templateUrl: './bid.component.html',
+  styleUrls: ['./bid.component.css'],
 })
-export class ViewProductComponent implements OnInit {
+export class BidComponent implements OnInit {
 
   public products: Product[];
 
@@ -37,10 +37,9 @@ export class ViewProductComponent implements OnInit {
   product$: any;
 
   constructor(private router: Router, 
-                private service: RegistrationService,
-                private http: HttpClient,
-                private route: ActivatedRoute) { }
-
+    private service: RegistrationService,
+    private http: HttpClient,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -51,22 +50,12 @@ export class ViewProductComponent implements OnInit {
       console.log(this.id)
       
     }
-  )
-
-    // this.service.getProduct(this.id)
-    //   .subscribe(data => 
-    //   {
-    //   console.log(data)
-    //   this.product = data;
-    //   },
-    //   error => console.log(error)
-    //   );
-
-      this.getProduct(this.id);
-      // this.getProducts();
+    )
+    
+    this.getProduct(this.id);
   }
 
-
+  
   public getProducts(): void
   {
     this.service.getProducts().subscribe(
@@ -96,10 +85,10 @@ export class ViewProductComponent implements OnInit {
     this.router.navigate(['/auction']);
    }
 
-   gotToAddBid()
+   gotToAddNewBid()
    {
-    this.router.navigate(['/bidder/bid/' , this.product.id]);
+    // this.router.navigate(['/bidder/bid/', this.product.id ,'/addBid/', this.product.id]);
+    this.router.navigate(['/bidder/addBid/', this.product.id]);
    }
-
 
 }

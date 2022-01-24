@@ -31,7 +31,6 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { FeedbackHomeComponent } from './feedback-home/feedback-home.component';
 import { ViewProductComponent } from './view-product/view-product.component';
-import { BidComponent } from './bid/bid.component';
 import { AuthGuardService } from './services/auth-guard.service';
 
 
@@ -56,7 +55,6 @@ import { AuthGuardService } from './services/auth-guard.service';
     FeedbackComponent,
     FeedbackHomeComponent,
     ViewProductComponent,
-    BidComponent,
   
   ],
   imports: [

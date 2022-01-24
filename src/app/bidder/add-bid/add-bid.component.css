@@ -1,0 +1,27 @@
+.bid-content
+{
+    border-radius: .25rem;
+    height: 40rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+
+
+}
+
+.card
+{
+    height: 100%;
+}
+
+.bid
+{
+    margin-top: 10rem;
+}
+
+.form
+{
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    /* margin-right: 2rem; */
+}
