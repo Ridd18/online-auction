@@ -14,6 +14,9 @@ import { WebSocketService } from 'src/app/services/web-socket.service';
 })
 export class AddBidComponent implements OnInit , OnDestroy {
 
+  stompClient: null;
+  username: null;
+
   public products: Product[];
 
   
@@ -85,5 +88,8 @@ export class AddBidComponent implements OnInit , OnDestroy {
     addBidForm.form['bidAmount'].reset();
     console.log(addBidForm.value)
   }
+
+  
+
 
 }

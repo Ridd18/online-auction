@@ -6,11 +6,11 @@ export class Buyer{
     phoneNo: string;
     email: string;
    
-   constructor(email,password)
-   {
-       this.email = email;
-       this.password = password;
-   }
+//    constructor(email,password)
+//    {
+//        this.email = email;
+//        this.password = password;
+//    }
 
 
 }

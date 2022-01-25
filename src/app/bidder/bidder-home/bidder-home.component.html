@@ -1,16 +1,24 @@
 <app-header></app-header>
 
+<div class="data" *ngFor= "let buyer of buyers"></div>
+
+<input type="hidden" name="id" ngModel="{{buyer.id}}" class="form-control" id="id" placeholder="ID">
+
+<input type="hidden" name="email" ngModel="{{buyer.email}}" class="form-control" id="id" placeholder="Email">
+
 
 
 <section class="nav">
     <div id="topnav">
     <nav>
      <ul>
-        <li><a class="nav-link" routerLink="/bidder/bidderHome" routerLinkActive="active" target="_blank">Home</a></li>
+        <li><a class="nav-link" [routerLink]="['/bidder/bidderHome/']" routerLinkActive="active" target="_blank">Home</a></li>
         <li><a class="nav-link" routerLink="/bidder/viewAuction" routerLinkActive="active" target="_blank">Auctions</a></li>
          <li><a class="nav-link" routerLink="/logout" routerLinkActive="active" target="_blank" >Logout</a></li>
      </ul>
     </nav>
     </div>
     </section>
+
+    <p>{{buyer?.id}}</p>
 <!-- <app-bidder-bidder-nav></app-bidder-bidder-nav> -->

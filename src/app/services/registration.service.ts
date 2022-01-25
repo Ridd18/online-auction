@@ -30,6 +30,16 @@ export class RegistrationService {
     return this.http.get<Buyer[]>(`${this.apiServerUrl}/auction/buyer/all`);
   }
 
+  public getBidder(id: number): Observable<Buyer>
+  {
+    return this.http.get<Buyer>(`${this.apiServerUrl}/auction/buyer/find/${id}`);
+  }
+
+  public getBuyer(email: string): Observable<Buyer>
+  {
+    return this.http.get<Buyer>(`${this.apiServerUrl}/auction/buyer/findEmail/${email}`);
+  }
+
   public registerBuyerUser(buyer: Buyer): Observable<Buyer> {
     return this.http.post<Buyer>(`${this.apiServerUrl}/auction/buyer/add`, buyer);
   }
