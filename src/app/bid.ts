@@ -1,11 +1,11 @@
 export class Bid
 {
-    user:String;
+    bidderName:String;
     bidAmount: String;
      
-    constructor(user:String , bidAmount:String)
+    constructor(bidderName:String , bidAmount:String)
     {
         this.bidAmount = bidAmount;
-        this.user= user;
+        this.bidderName= bidderName;
     }
 }

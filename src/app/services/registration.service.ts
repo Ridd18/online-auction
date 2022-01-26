@@ -9,6 +9,7 @@ import { Admin } from '../admin';
 import { Product } from '../product';
 import { Image } from '../image';
 import { Feedback } from '../feedback';
+import { Bid } from '../bid';
 
 @Injectable({
   providedIn: 'root'
@@ -128,16 +129,27 @@ export class RegistrationService {
   }
   
 //feedback
-public addFeedback(feedback: Feedback): Observable <Feedback>
-{
-  return this.http.post<Feedback>(`${this.apiServerUrl}/auction/feedback/add`,feedback)
-}
+  public addFeedback(feedback: Feedback): Observable <Feedback>
+  {
+    return this.http.post<Feedback>(`${this.apiServerUrl}/auction/feedback/add`,feedback)
+  }
 
 
-public getFeedbacks(): Observable<Feedback[]>
-{
-  return this.http.get<Feedback[]>(`${this.apiServerUrl}/auction/feedback/all`);
-}
+  public getFeedbacks(): Observable<Feedback[]>
+  {
+    return this.http.get<Feedback[]>(`${this.apiServerUrl}/auction/feedback/all`);
+  }
 
+  //bid
+  public addBid(bid: Bid): Observable <Bid>
+  {
+    return this.http.post<Bid>(`${this.apiServerUrl}/auction/bid/add`,bid)
+  }
+
+
+  public getBids(): Observable<Bid[]>
+  {
+    return this.http.get<Bid[]>(`${this.apiServerUrl}/auction/bid/all`);
+  }
 
 }

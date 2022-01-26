@@ -1,6 +1,21 @@
 <app-header></app-header>
 
 
+<!-- <div *ngFor="let string of greetings">
+    <div class="container">
+     <p>{{string}}</p>
+    </div>
+   </div>
+   <form #loginForm=ngForm>
+    <div>
+     <br>
+     <textarea autocomplete="off" placeholder="Type Your Message..." name="newmessage" [(ngModel)]="newmessage" required></textarea>
+     <button class="btn btn-primary" (click)="sendMessage()" [disabled]="!loginForm.valid">Send</button>
+    </div>
+   </form> -->
+
+
+
 <input type="hidden" name="id" ngModel="{{product?.id}}" class="form-control" id="id" placeholder="ID">
 <div class="bid">
     <div class="main">
@@ -12,11 +27,17 @@
                         <span>{{product?.startBid}}</span>
                     </li>
 
-                    <li class="list-group-item" *ngFor = "let bid of webSocketService.bidMessage">
+                    <li class="list-group-item" *ngFor = "let bid of bids">
 
-                        <strong>{{bid?.user}}:</strong>
+                        <strong>{{bid?.bidderName}}:</strong>
                         <span>{{bid?.bidAmount}}</span>
                     </li>
+                    <li class="list-group-item" *ngFor = "let bid of webSocketService.bidMessage">
+
+                        <strong>{{bid?.bidderName}}:</strong>
+                        <span>{{bid?.bidAmount}}</span>
+                    </li>
+
 
                 </ul>   
             </div>
@@ -26,7 +47,7 @@
         <form  #addBidForm = "ngForm" (ngSubmit)="addBid(addBidForm)" class="form">
             <div class="bid-send row">
                 <div class="col-2">
-                    <input type="text" class="form-control" name="user" id="input-user" ngModel>
+                    <input type="text" class="form-control" name="bidderName" id="input-user" ngModel>
                 </div>
                 <div class="col-8">
                     <input type="text" class="form-control" name="bidAmount" id="input-bid" ngModel>

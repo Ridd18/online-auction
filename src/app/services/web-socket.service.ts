@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Bid } from '../bid';
+import { RegistrationService } from './registration.service';
 
 
 @Injectable({
@@ -11,10 +12,13 @@ export class WebSocketService {
   newmessage: string;
   private stompClient = null;
 
+
+  recentBid:String;
+
   webSocket: WebSocket;
   bidMessage: Bid[] = [];
 
-  constructor() { }
+  constructor(private service: RegistrationService) { }
 
   public openWebSocket()
   {
@@ -39,7 +43,10 @@ export class WebSocketService {
 
   public sendBid(sendBid: Bid)
   {
+
     this.webSocket.send(JSON.stringify(sendBid));
+   
+
   }
 
   public closeWebSocket()
