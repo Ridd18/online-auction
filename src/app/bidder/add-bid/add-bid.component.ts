@@ -3,6 +3,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Stomp } from '@stomp/stompjs';
+import { data } from 'jquery';
 import * as SockJS from 'sockjs-client';
 import { Bid } from 'src/app/bid';
 import { Product } from 'src/app/product';
@@ -35,11 +36,18 @@ export class AddBidComponent implements OnInit , OnDestroy {
   
   // product: Product;
 
+  public bid: Bid;
 
   id: number;
 
 
-  bids: Bid[] = [];
+  bidProductName: string;
+  
+
+
+ public bids: Bid[];
+
+ public productBids: Bid[];
 
   constructor(public webSocketService: WebSocketService,
                 private router: Router, 
@@ -57,13 +65,16 @@ export class AddBidComponent implements OnInit , OnDestroy {
     {
       this.id = +params['id'];
       console.log(this.id)
-      
+
     }
     )
     
     this.getProduct(this.id);
 
-    this.getBids();
+    
+  
+    // this.getBid(this.bidProductName);
+    // this.getBids();
   }
 
   ngOnDestroy(): void {
@@ -77,27 +88,53 @@ export class AddBidComponent implements OnInit , OnDestroy {
       {
       console.log(data)
       this.product = data;
+
+          this.bidProductName = this.product.productName;
+          console.log(this.bidProductName);
+          this.service.getBid(this.bidProductName)
+          .subscribe(
+            (response: Bid[]) => {
+              this.productBids = response;
+              console.log(this.productBids);
+            },
+            (error: HttpErrorResponse) => {
+              alert(error.message);
+            }
+          );
+      
       },
+
       error => console.log(error)
       );
     }
 
-    
+
+    // public getBid(productName: string): void
+    // {
+    //   this.service.getBid(this.bidProductName)
+    //   .subscribe(
+    //     (response: Bid[]) => {
+    //       this.getProduct(this.id);
+    //       this.productBids = response;
+    //       console.log(this.productBids);
+    //     },
+    //     (error: HttpErrorResponse) => {
+    //       alert(error.message);
+    //     }
+    //   );
+    // }
 
   addBid(addBidForm: NgForm)
   {
     const bid = new Bid(addBidForm.value.bidderName, addBidForm.value.bidAmount)
     this.webSocketService.sendBid(bid);
-    // localStorage.setItem('recentBid', addBidForm.value.bidAmount)
     // addBidForm.form['bidAmount'].reset();
     console.log(addBidForm.value)
     this.service.addBid(addBidForm.value)
     .subscribe(
       res => {
         console.log(res);
-        // localStorage.setItem('token', res.token)
-        // this.router.navigate(['']);
-
+       
       },
       err => console.log(err)
     )
@@ -115,6 +152,8 @@ export class AddBidComponent implements OnInit , OnDestroy {
       }
     );
   }
+
+
     // setConnected(connected: boolean) {
     //   this.disabled = !connected;
     //   if (connected) {

@@ -9,9 +9,9 @@ import { ViewAuctionsComponent } from './view-auctions/view-auctions.component';
 const routes: Routes = [
 
   {path: '', component : AdminHomeComponent },
-  {path:'getBidders', component:GetBiddersComponent, canActivate:[AuthenticationGuard] },
-  {path:'getSellers', component:GetSellersComponent, canActivate:[AuthenticationGuard]  } ,
-  { path:'viewAuction', component:ViewAuctionsComponent, canActivate:[AuthenticationGuard] }
+  {path:'getBidders', component:GetBiddersComponent },
+  {path:'getSellers', component:GetSellersComponent } ,
+  { path:'viewAuction', component:ViewAuctionsComponent }
   // { path: '', children :[
   //   { path : 'adminHome', component : AdminHomeComponent },
   //   { path : '', redirectTo : 'admin', pathMatch : 'full' }

@@ -152,4 +152,9 @@ export class RegistrationService {
     return this.http.get<Bid[]>(`${this.apiServerUrl}/auction/bid/all`);
   }
 
+  public getBid(productName: string): Observable<Bid[]>
+  {
+    return this.http.get<Bid[]>(`${this.apiServerUrl}/auction/bid/find/${productName}`);
+  }
+
 }
