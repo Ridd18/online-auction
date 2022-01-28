@@ -13,8 +13,7 @@
 
           </div>
           <div class="data" *ngFor= "let buyer of buyers"></div>
-          
-        <input type="hidden" name="id" ngModel="{{buyer?.id}}" class="form-control" id="id" placeholder="ID">
+          <!-- <div>{{buyer?.email}}</div> -->
         
           <div class="card-body">
               <form #loginForm ="ngForm" (ngSubmit)="loginUser(loginForm)" class="form">

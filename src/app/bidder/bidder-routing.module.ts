@@ -9,16 +9,11 @@ import { BidderHomeComponent } from './bidder-home/bidder-home.component';
 const routes: Routes = [
 
   { path: '', component: BidderHomeComponent,canActivate:[AuthenticationGuard] },
-  { path: 'bidderHome', component: BidderHomeComponent, canActivate:[AuthenticationGuard] },
+  { path: 'bidderHome/:email', component: BidderHomeComponent, canActivate:[AuthenticationGuard] },
   { path: 'viewAuction' , component: AuctionComponent},
-  // { path: 'bid/:id', component: BidComponent,canActivate:[AuthenticationGuard]},
-  { path: 'bid/:id', component: BidComponent,
-      children:[
-       { path: '/addBid/:id', component: AddBidComponent, canActivate:[AuthenticationGuard]}
-      
-      ]
- },
- {path:'addBid/:id' , component:AddBidComponent},
+  { path: 'bid/:id', component: BidComponent, canActivate:[AuthenticationGuard]},
+  { path: 'addBid/:id' , component:AddBidComponent ,  canActivate:[AuthenticationGuard]},
+  
 ];
 
 @NgModule({

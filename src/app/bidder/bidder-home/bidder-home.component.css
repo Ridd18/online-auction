@@ -46,3 +46,52 @@ ul
     padding: 20px;
     
 }
+
+
+.row {
+    margin: 10px -16px;
+  }
+  
+ 
+  .row,
+  .row > .column {
+    padding: 10px;
+
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  
+  .column {
+    float: left;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: center;
+    align-items: center;
+  }
+
+.content {
+    background-color: #09ded3;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 12px;
+    height: fit-content;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+  .content:hover{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    transform: translateY(-10px);
+  }
+ .content >h4{
+     color:#202124;
+text-align:center ;
+ }
+ .content>p{
+     color:#202124
+ }

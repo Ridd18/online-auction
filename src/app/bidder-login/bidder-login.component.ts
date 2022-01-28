@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, switchMap } from 'rxjs';
@@ -14,12 +14,15 @@ import { RegistrationService } from '../services/registration.service';
 })
 export class BidderLoginComponent implements OnInit {
 
+  
+
   bidderUser= 'Bidder';
 
+  bidder:Buyer;
 
   public buyer: Buyer = new Buyer();
   
-  selectedEmail: String;
+  selectedEmail: string;
 
   id: number;
 
@@ -30,16 +33,25 @@ export class BidderLoginComponent implements OnInit {
 
   public buyers: Buyer[];
 
+
   constructor(private router: Router, 
               private loginService: RegistrationService,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
 
-    
+
     this.getBuyers();
     
+    this.bidder$ = this.route.paramMap.pipe(
+      switchMap(params => 
+        {
+          this.selectedEmail = JSON.parse(this.route.snapshot.paramMap.get['email']);
+          console.log(this.selectedEmail);
+          return this.loginService.getBuyer(this.selectedEmail);
+        })
 
+    ); 
 
 
     // this.bidder$ = this.route.paramMap.pipe(
@@ -55,7 +67,6 @@ export class BidderLoginComponent implements OnInit {
     // );
     
     
-    // this.getBidder(this.buyer.id);
   }
 
   loginUser(loginForm: NgForm)
@@ -65,12 +76,23 @@ export class BidderLoginComponent implements OnInit {
     .subscribe(
       res => {
         console.log(res);
-        localStorage.setItem('Bidder',this.bidderUser)
-    
-      this.router.navigate(['bidder'])
 
+        this.bidder = res; 
+        console.log(this.bidder);
+        localStorage.setItem('Bidder',this.bidderUser)
+
+
+        
       this.selectedEmail = loginForm.value.email;
       console.log(this.selectedEmail);
+    
+      this.router.navigate(['/bidder/bidderHome/' + this.selectedEmail])
+   
+
+
+
+       this.getBuyer(this.selectedEmail);
+       
     },
 
       err => {
@@ -96,6 +118,18 @@ export class BidderLoginComponent implements OnInit {
   public getBidder(id: number): void
   {
     this.loginService.getBidder(this.id)
+    .subscribe(data => 
+    {
+    console.log(data)
+    this.buyer = data;
+    },
+    error => console.log(error)
+    );
+  }
+
+  public getBuyer(email: string): void
+  {
+    this.loginService.getBuyer(this.selectedEmail)
     .subscribe(data => 
     {
     console.log(data)

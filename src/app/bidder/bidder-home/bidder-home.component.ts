@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { Buyer } from 'src/app/buyer';
@@ -8,39 +8,29 @@ import { RegistrationService } from 'src/app/services/registration.service';
 
 @Component({
   selector: 'app-bidder-home',
-  templateUrl: './bidder-home.component.html'
-              ,
-                
+  templateUrl: './bidder-home.component.html',
   styleUrls: ['./bidder-home.component.css']
 })
 export class BidderHomeComponent implements OnInit {
+
+
+
 
   public buyers: Buyer[];
 
   public buyer: Buyer = new Buyer();
   
-  // product: Product;
-
-
   id: number;
 
   email: string;
 
-  selectedEmail: String;
-
-
+  selectedBidder: string;
 
   bidder$: any;
 
-
-  uploadedImage: File;
-  dbImage: any;
   postResponse: any;
   successResponse: string;
-  image: any;
-  img: any;
-  hero$: any;
-  product$: any;
+ 
 
   constructor(private router: Router, 
     private service: RegistrationService,
@@ -52,16 +42,31 @@ export class BidderHomeComponent implements OnInit {
 
     this.getBuyers();
 
-  //   this.route.params
-  //   .subscribe((params: Params) =>
-  //   {
-  //     this.email = params['email'];
-  //     console.log(this.email)
+    this.route.params
+    .subscribe((params: Params) =>
+    {
+      this.email = params['email'];
+      console.log(this.email)
       
-  //   }
-  // )
+    }
+  )
 
-  //     this.getBuyer(this.email);
+  this.getBuyer(this.email);
+  // this.service.getBuyer(this.email)
+  // .subscribe(data => 
+  //   {
+  //   console.log(data)
+  //   this.buyer = data;
+    
+  //   this.selectedBidder = this.buyer.username;
+  //   console.log(this.selectedBidder)
+  // },
+  //  error => console.log(error)
+  //  );
+
+
+    // this.getBuyer(this.email);
+
   }
 
   
@@ -89,16 +94,23 @@ export class BidderHomeComponent implements OnInit {
       );
     }
 
-        public getBuyer(email: string): void
+    public getBuyer(email: string): void
     {
       this.service.getBuyer(this.email)
       .subscribe(data => 
       {
       console.log(data)
       this.buyer = data;
+
+      this.selectedBidder = this.buyer.username;
+   
+      localStorage.setItem('bidderName' , this.selectedBidder);
+
+
+      console.log(this.selectedBidder)
+
       },
       error => console.log(error)
       );
     }
-
 }

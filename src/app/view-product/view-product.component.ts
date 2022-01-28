@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Buyer } from '../buyer';
 import { Product } from '../product';
 import { RegistrationService } from '../services/registration.service';
 
@@ -23,6 +24,23 @@ export class ViewProductComponent implements OnInit {
 
 
   id: number;
+
+  public buyers: Buyer[];
+
+  public buyer: Buyer = new Buyer();
+  
+  // product: Product;
+
+
+  
+
+  email: string;
+
+  selectedEmail: string;
+
+
+
+  bidder$: any;
 
 
 
@@ -53,6 +71,23 @@ export class ViewProductComponent implements OnInit {
     }
   )
 
+  //   this.route.params
+  //   .subscribe((params: Params) =>
+  //   {
+  //     this.email = params['email'];
+  //     console.log(this.email)
+      
+  //   }
+  // )
+  // this.service.getBuyer(this.email)
+  // .subscribe(data => 
+  //   {
+  //   console.log(data)
+  //   this.buyer = data;
+  // },
+  // error => console.log(error)
+  // );
+
     // this.service.getProduct(this.id)
     //   .subscribe(data => 
     //   {
@@ -63,7 +98,6 @@ export class ViewProductComponent implements OnInit {
     //   );
 
       this.getProduct(this.id);
-      // this.getProducts();
   }
 
 
@@ -98,7 +132,7 @@ export class ViewProductComponent implements OnInit {
 
    gotToAddBid()
    {
-    this.router.navigate(['/bidder/bid/' , this.product.id]);
+    this.router.navigate(['/bidder/bid/' , this.product.id ]);
    }
 
 

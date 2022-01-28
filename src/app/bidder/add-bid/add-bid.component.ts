@@ -1,11 +1,12 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Stomp } from '@stomp/stompjs';
 import { data } from 'jquery';
 import * as SockJS from 'sockjs-client';
 import { Bid } from 'src/app/bid';
+import { Buyer } from 'src/app/buyer';
 import { Product } from 'src/app/product';
 import { RegistrationService } from 'src/app/services/registration.service';
 import { WebSocketService } from 'src/app/services/web-socket.service';
@@ -17,6 +18,7 @@ import { WebSocketService } from 'src/app/services/web-socket.service';
 })
 export class AddBidComponent implements OnInit , OnDestroy {
 
+ 
   // title = 'WebSocketChatRoom';
   // greetings: string[] = [];
   // disabled = true;
@@ -34,7 +36,7 @@ export class AddBidComponent implements OnInit , OnDestroy {
 
   public product: Product = new Product();
   
-  // product: Product;
+  // bidderName:string;
 
   public bid: Bid;
 
@@ -48,6 +50,19 @@ export class AddBidComponent implements OnInit , OnDestroy {
  public bids: Bid[];
 
  public productBids: Bid[];
+
+ public buyers: Buyer[];
+
+ public buyer: Buyer = new Buyer();
+ 
+
+ email: string;
+ selectedEmail: string;
+
+  bidderName =  localStorage.getItem('bidderName');
+  
+
+ bidder$: any;
 
   constructor(public webSocketService: WebSocketService,
                 private router: Router, 
@@ -69,10 +84,32 @@ export class AddBidComponent implements OnInit , OnDestroy {
     }
     )
     
-    this.getProduct(this.id);
+      this.getProduct(this.id);
 
-    
+      this.route.params
+      .subscribe((params: Params) =>
+      {
+        this.email = params['email'];
+        console.log(this.email)
+        
+      }
+    )
+
+    console.log(this.bidderName);
+
+    // this.service.getBuyer(this.email)
+    // .subscribe(data => 
+    //   {
+    //   console.log(data)
+    //   this.buyer = data;
+    // },
+    //  error => console.log(error)
+    //  );
   
+
+    //   let bidderName =  localStorage.getItem('bidderName');
+    //  console.log(bidderName);
+
     // this.getBid(this.bidProductName);
     // this.getBids();
   }
@@ -88,6 +125,9 @@ export class AddBidComponent implements OnInit , OnDestroy {
       {
       console.log(data)
       this.product = data;
+
+
+      
 
           this.bidProductName = this.product.productName;
           console.log(this.bidProductName);
@@ -150,6 +190,18 @@ export class AddBidComponent implements OnInit , OnDestroy {
       (error: HttpErrorResponse) => {
         alert(error.message);
       }
+    );
+  }
+
+  public getBuyer(email: string): void
+  {
+    this.service.getBuyer(this.email)
+    .subscribe(data => 
+    {
+    console.log(data)
+    this.buyer = data;
+    },
+    error => console.log(error)
     );
   }
 

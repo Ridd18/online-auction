@@ -1,6 +1,7 @@
 <app-header></app-header>
 
-<div class="data" *ngFor= "let buyer of buyers"></div>
+<!-- <div class="data" *ngFor= "let buyer of buyers"></div> -->
+
 
 <input type="hidden" name="id" ngModel="{{buyer.id}}" class="form-control" id="id" placeholder="ID">
 
@@ -12,13 +13,24 @@
     <div id="topnav">
     <nav>
      <ul>
-        <li><a class="nav-link" [routerLink]="['/bidder/bidderHome/']" routerLinkActive="active" target="_blank">Home</a></li>
+        <li><a class="nav-link" [routerLink]="['/bidder/bidderHome/' , buyer.email]" routerLinkActive="active" target="_blank">Home</a></li>
         <li><a class="nav-link" routerLink="/bidder/viewAuction" routerLinkActive="active" target="_blank">Auctions</a></li>
          <li><a class="nav-link" routerLink="/logout" routerLinkActive="active" target="_blank" >Logout</a></li>
      </ul>
     </nav>
     </div>
     </section>
+    <div class="row">
+        <div class="column">
+            <div class="content">
+                <h4><b>Name: </b>{{buyer?.name}}</h4>
+                <p class="m-0"><b>Username: </b>{{buyer?.username}}</p>
+                <p class="m-0"><b>Email: </b>{{buyer?.email}}</p>
+                <p class="m-0"><b> Phone No: </b>{{buyer?.phoneNo}}</p>
+                
+            </div>
+        </div>
+    </div>
 
-    <p>{{buyer?.id}}</p>
+    <!-- <app-add-bid></app-add-bid> -->
 <!-- <app-bidder-bidder-nav></app-bidder-bidder-nav> -->
