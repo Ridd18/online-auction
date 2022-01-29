@@ -59,7 +59,8 @@ export class AddBidComponent implements OnInit , OnDestroy {
  email: string;
  selectedEmail: string;
 
-  bidderName =  localStorage.getItem('bidderName');
+  // bidderName =  localStorage.getItem('bidderName');
+  bidderName = sessionStorage.getItem('bidderName');
   
 
  bidder$: any;
