@@ -21,6 +21,9 @@ export class AddProductsComponent implements OnInit {
   image: any;
 
 
+  msg = '';
+
+  
   myDate: Date;  
 
   public product: Product[];
@@ -55,7 +58,10 @@ export class AddProductsComponent implements OnInit {
         this.router.navigate(['/seller/addProductImage']);
 
       },
-      err => console.log(err)
+      err => {
+        console.log(err)
+        this.msg="Bad Credentials";
+      } 
     )
   }
 

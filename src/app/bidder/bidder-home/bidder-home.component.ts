@@ -106,9 +106,9 @@ export class BidderHomeComponent implements OnInit {
 
     
    
-      // localStorage.setItem('bidderName' , this.selectedBidder);
+      localStorage.setItem('bidderName' , this.selectedBidder);
 
-      sessionStorage.setItem('bidderName' , this.selectedBidder);
+      // sessionStorage.setItem('bidderName' , this.selectedBidder);
 
       console.log(this.selectedBidder)
 

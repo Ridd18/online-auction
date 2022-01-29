@@ -12,6 +12,9 @@
                 <div class="card-body">
                     
                     <form #addProductForm = "ngForm" (ngSubmit)="addProduct(addProductForm)" class="form" enctype="multipart/form-data">
+                       
+                        <small class="danger">{{msg}}</small>
+
                         <div class="form-group">
                             <label for="">Product Name</label>
                             <input  ngModel name="productName" type="text" class="form-control rounded-0" required>

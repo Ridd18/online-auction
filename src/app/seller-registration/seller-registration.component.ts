@@ -10,6 +10,9 @@ import { RegistrationService } from '../services/registration.service';
 })
 export class SellerRegistrationComponent implements OnInit {
 
+
+  msg = ''; 
+
   constructor(private auth: RegistrationService , private router: Router) { }
 
   ngOnInit(): void {
@@ -26,7 +29,10 @@ export class SellerRegistrationComponent implements OnInit {
         this.router.navigate(['']);
 
       },
-      err => console.log(err)
+      err => {
+        console.log(err)
+        this.msg="Bad Credentials";
+      }
     )
   }
 

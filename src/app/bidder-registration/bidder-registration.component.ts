@@ -13,6 +13,8 @@ export class BidderRegistrationComponent implements OnInit {
 
   public buyer: Buyer[]; 
 
+  msg = '';
+
   constructor(private auth: RegistrationService , private router: Router) { }
 
   ngOnInit(): void {
@@ -30,7 +32,10 @@ export class BidderRegistrationComponent implements OnInit {
         this.router.navigate(['']);
 
       },
-      err => console.log(err)
+      err => {
+        console.log(err)
+        this.msg="Bad Credentials";
+      }
     )
   }
 

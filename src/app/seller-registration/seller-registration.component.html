@@ -13,6 +13,9 @@
             </div>
             <div class="card-body">
                 <form #addForm ="ngForm" (ngSubmit)="registerUser(addForm)" class="form">
+
+                    <small class="danger">{{msg}}</small>
+                    
                     <div class="form-group">
                         <label for="">Name</label>
                         <input  ngModel name="name" type="text" class="form-control rounded-0" required>

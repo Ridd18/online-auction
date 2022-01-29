@@ -1,7 +1,8 @@
 .bid-content
 {
     border-radius: .25rem;
-    height: 40rem;
+    height: fit-content;
+    max-height: fit-content;
     margin-bottom: 2rem;
     margin-left: 2rem;
     margin-right: 2rem;
