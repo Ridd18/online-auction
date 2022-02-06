@@ -13,7 +13,7 @@
      <button class="btn btn-primary" (click)="sendMessage()" [disabled]="!loginForm.valid">Send</button>
     </div>
    </form> -->
-<h1>{{bidderName}}</h1>
+<h1>{{product?.productName}}</h1>
 <input type="hidden" name="id" ngModel="{{product?.id}}" class="form-control" id="id" placeholder="ID">
 <input type="hidden" name="email" ngModel="{{buyer?.email}}" class="form-control" id="id" placeholder="ID">
 <div class="bid">
