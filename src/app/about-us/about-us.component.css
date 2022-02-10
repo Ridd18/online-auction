@@ -78,7 +78,7 @@ margin:50px auto
 }
 .links li a{
     text-transform: uppercase;
-    color: #fff;
+    color: #000;
     text-decoration: none;
 }
 .links li:hover{

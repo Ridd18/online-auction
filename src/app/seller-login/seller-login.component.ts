@@ -36,6 +36,7 @@ export class SellerLoginComponent implements OnInit {
       err => {
         console.log(err) 
         this.msg="Bad Credentials";
+        
       }
     )
 
