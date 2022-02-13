@@ -47,6 +47,7 @@
         <form  #addBidForm = "ngForm" (ngSubmit)="addBid(addBidForm)" class="form">
             <div class="bid-send row">
                 <div class="col-2">
+                    <input type="hidden" name="productId" ngModel="{{product?.id}}" class="form-control" id="productId" placeholder="ID">
                     <input type="hidden" name="endDate" ngModel="{{product?.endDate}}" class="form-control" id="productDate" placeholder="ID">
                     <input type="hidden" name="productName" ngModel="{{product?.productName}}" class="form-control" id="productName" placeholder="ID">
                     <input type="text" class="form-control" name="bidderName" ngModel="{{bidderName}}"  id="input-user" >

@@ -157,4 +157,14 @@ export class RegistrationService {
     return this.http.get<Bid[]>(`${this.apiServerUrl}/auction/bid/find/${productName}`);
   }
 
+  public getMaxBid(productId: number): Observable<Bid>
+  {
+    return this.http.get<Bid>(`${this.apiServerUrl}/auction/bid/sell/${productId}`);
+  }
+
+  // public sellProduct(productId: number): Observable<Bid>
+  // {
+  //   return this.http.post<Bid>(`${this.apiServerUrl}/auction/bid/sells/${productId}`);
+  // }
+
 }

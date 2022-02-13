@@ -78,14 +78,16 @@ export class AddBidComponent implements OnInit , OnDestroy {
 
     this.route.params
     .subscribe((params: Params) =>
-    {
-      this.id = +params['id'];
-      console.log(this.id)
+      {
+        this.id = +params['id'];
+        console.log(this.id)
 
-    }
+      }
     )
     
       this.getProduct(this.id);
+
+      this.getMaxBid(this.id);
 
       this.route.params
       .subscribe((params: Params) =>
@@ -128,8 +130,6 @@ export class AddBidComponent implements OnInit , OnDestroy {
       this.product = data;
 
 
-      
-
           this.bidProductName = this.product.productName;
           console.log(this.bidProductName);
           this.service.getBid(this.bidProductName)
@@ -149,6 +149,20 @@ export class AddBidComponent implements OnInit , OnDestroy {
       );
     }
 
+    public getMaxBid(productId: number): void
+    {
+      this.service.getMaxBid(this.id)
+      .subscribe(data => 
+      {
+      console.log(data)
+      this.bid = data;
+      console.log(this.bid.bidAmount)
+      
+      // this.router.navigate(['bidder/payment']);
+      },
+      error => console.log(error)
+      );
+    }
 
     // public getBid(productName: string): void
     // {
