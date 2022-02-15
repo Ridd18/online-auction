@@ -84,10 +84,6 @@ export class RegistrationService {
     return this.http.post<Admin>(`${this.apiServerUrl}/auction/admin/login`, admin);
   }
 
-  // logedIn()
-  // {
-  //   return !!localStorage.getItem('token')
-  // }
 
   //Product
   public addProducts(product: Product): Observable <Product>
@@ -162,9 +158,11 @@ export class RegistrationService {
     return this.http.get<Bid>(`${this.apiServerUrl}/auction/bid/sell/${productId}`);
   }
 
-  // public sellProduct(productId: number): Observable<Bid>
-  // {
-  //   return this.http.post<Bid>(`${this.apiServerUrl}/auction/bid/sells/${productId}`);
-  // }
+  
+
+  public sellProduct(productId: number): Observable<Bid>
+  {
+    return this.http.post<Bid>(`${this.apiServerUrl}/auction/bid/sells/`,productId);
+  }
 
 }

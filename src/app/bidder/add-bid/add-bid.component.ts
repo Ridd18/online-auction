@@ -40,6 +40,8 @@ export class AddBidComponent implements OnInit , OnDestroy {
 
   public bid: Bid;
 
+  public maxBid: Bid;
+
   id: number;
 
 
@@ -87,7 +89,8 @@ export class AddBidComponent implements OnInit , OnDestroy {
     
       this.getProduct(this.id);
 
-      this.getMaxBid(this.id);
+      // this.getMaxBid(this.id);
+      this.sellProduct(this.id);
 
       this.route.params
       .subscribe((params: Params) =>
@@ -100,21 +103,7 @@ export class AddBidComponent implements OnInit , OnDestroy {
 
     console.log(this.bidderName);
 
-    // this.service.getBuyer(this.email)
-    // .subscribe(data => 
-    //   {
-    //   console.log(data)
-    //   this.buyer = data;
-    // },
-    //  error => console.log(error)
-    //  );
-  
-
-    //   let bidderName =  localStorage.getItem('bidderName');
-    //  console.log(bidderName);
-
-    // this.getBid(this.bidProductName);
-    // this.getBids();
+   
   }
 
   ngOnDestroy(): void {
@@ -156,28 +145,28 @@ export class AddBidComponent implements OnInit , OnDestroy {
       {
       console.log(data)
       this.bid = data;
-      console.log(this.bid.bidAmount)
-      
+      this.maxBid = data ;
+      console.log(this.maxBid.bidAmount)  
+      console.log(this.bid.bidAmount)  
+
+        // this.service.sellProduct(this.maxBid) 
+        // .subscribe(
+        //   (response: Bid) => {
+        //     this.maxBid = response;
+        //     console.log(this.maxBid);
+        //   },
+        //   (error: HttpErrorResponse) => {
+        //     alert(error.message);
+        //   }
+        // );;
+
+
       // this.router.navigate(['bidder/payment']);
       },
       error => console.log(error)
       );
     }
 
-    // public getBid(productName: string): void
-    // {
-    //   this.service.getBid(this.bidProductName)
-    //   .subscribe(
-    //     (response: Bid[]) => {
-    //       this.getProduct(this.id);
-    //       this.productBids = response;
-    //       console.log(this.productBids);
-    //     },
-    //     (error: HttpErrorResponse) => {
-    //       alert(error.message);
-    //     }
-    //   );
-    // }
 
   addBid(addBidForm: NgForm)
   {
@@ -220,40 +209,16 @@ export class AddBidComponent implements OnInit , OnDestroy {
     );
   }
 
-
-    // setConnected(connected: boolean) {
-    //   this.disabled = !connected;
-    //   if (connected) {
-    //     this.greetings = [];
-    //   }
-    // }
-    // connect() {
-    //   const socket = new SockJS('http://localhost:8090/auction/bid');
-    //   this.stompClient = Stomp.over(socket);
-    //   const _this = this;
-    //   this.stompClient.connect({}, function (frame) {
-    //     console.log('Connected: ' + frame);
-    //     _this.stompClient.subscribe('/start/initial', function(hello){
-    //       console.log(JSON.parse(hello.body));
-    //       _this.showMessage(JSON.parse(hello.body));
-    //     });
-    //  });
-    // }
-
-    // sendMessage() {
-    //   this.stompClient.send(
-    //     '/current/resume',
-    //     {},
-    //     JSON.stringify(this.newmessage)
-    //   );
-    //   this.newmessage = "";
-    // }
-    // showMessage(message) {
-    //   this.greetings.push(message);
-    // }
-    
-
-  
-
+  public sellProduct(productIdd: number)
+  {
+    this.service.sellProduct(productIdd)
+    .subscribe(data =>
+      {
+        console.log(data)
+        this.maxBid = data;
+      },
+      error => console.log(error)
+      );
+  }
 
 }
