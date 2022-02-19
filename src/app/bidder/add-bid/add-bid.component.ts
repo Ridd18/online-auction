@@ -90,16 +90,16 @@ export class AddBidComponent implements OnInit , OnDestroy {
       this.getProduct(this.id);
 
       // this.getMaxBid(this.id);
-      this.sellProduct(this.id);
+      // this.sellProduct(this.id);
 
-      this.route.params
-      .subscribe((params: Params) =>
-      {
-        this.email = params['email'];
-        console.log(this.email)
+    //   this.route.params
+    //   .subscribe((params: Params) =>
+    //   {
+    //     this.email = params['email'];
+    //     console.log(this.email)
         
-      }
-    )
+    //   }
+    // )
 
     console.log(this.bidderName);
 
@@ -117,8 +117,7 @@ export class AddBidComponent implements OnInit , OnDestroy {
       {
       console.log(data)
       this.product = data;
-
-
+      
           this.bidProductName = this.product.productName;
           console.log(this.bidProductName);
           this.service.getBid(this.bidProductName)

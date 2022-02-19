@@ -20,8 +20,6 @@ export class ViewProductComponent implements OnInit {
 
   public product: Product = new Product();
   
-  // product: Product;
-
 
   id: number;
 
@@ -29,8 +27,7 @@ export class ViewProductComponent implements OnInit {
 
   public buyer: Buyer = new Buyer();
   
-  // product: Product;
-
+ 
 
   
 
@@ -70,33 +67,6 @@ export class ViewProductComponent implements OnInit {
       
     }
   )
-
-  //   this.route.params
-  //   .subscribe((params: Params) =>
-  //   {
-  //     this.email = params['email'];
-  //     console.log(this.email)
-      
-  //   }
-  // )
-  // this.service.getBuyer(this.email)
-  // .subscribe(data => 
-  //   {
-  //   console.log(data)
-  //   this.buyer = data;
-  // },
-  // error => console.log(error)
-  // );
-
-    // this.service.getProduct(this.id)
-    //   .subscribe(data => 
-    //   {
-    //   console.log(data)
-    //   this.product = data;
-    //   },
-    //   error => console.log(error)
-    //   );
-
       this.getProduct(this.id);
   }
 
@@ -113,15 +83,21 @@ export class ViewProductComponent implements OnInit {
     );
   }
 
-    public getProduct(id: number): void
+    public  getProduct(id: number)
     {
       this.service.getProduct(this.id)
       .subscribe(data => 
       {
       console.log(data)
-      this.product = data;
+      this.product = data;  
       },
-      error => console.log(error)
+      error =>
+      {
+         
+        this.goToPayment();
+      
+        console.log(error)
+      } 
       );
     }
 
@@ -135,5 +111,9 @@ export class ViewProductComponent implements OnInit {
     this.router.navigate(['/bidder/bid/' , this.product.id ]);
    }
 
+   goToPayment()
+   {
+    this.router.navigate(['/bidder/payment']);
+   }
 
 }

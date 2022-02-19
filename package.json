@@ -27,6 +27,7 @@
     "jquery": "^3.6.0",
     "jsonwebtoken": "^8.5.1",
     "ngx-slick-carousel": "^0.5.1",
+    "ngx-stripe": "^13.0.0",
     "rxjs": "~7.4.0",
     "slick-carousel": "^1.8.1",
     "sockjs-client": "^1.5.2",
