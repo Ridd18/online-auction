@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { HttpHeaders} from '@angular/common/http';
-import { NgxStripeModule, StripeCardComponent } from 'ngx-stripe';
+import { NgxStripeModule, StripeElementsService } from 'ngx-stripe';
+import { StripeService,StripeCardComponent } from 'ngx-stripe';
+import { StripeCardElementOptions, StripeElementsOptions } from '@stripe/stripe-js';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,18 +14,25 @@ import { NgxStripeModule, StripeCardComponent } from 'ngx-stripe';
 })
 export class PaymentComponent implements OnInit {
 
- 
+   stripe :any;
+  card: any;
+  elements:any;
 
-  constructor( private http: HttpClient) { }
+
+  constructor( private http: HttpClient,
+                private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  chargeCreditCard() 
+   chargeCreditCard() 
   {
     let form = document.getElementsByTagName("form")[0];
-    (<any>window).Stripe.card.
-    createToken(
+    
+    
+    // const paymentIntent = await this.stripe.paymentIntents.create({
+
+    (<any>window).Stripe.card.createToken(
       {
       number: form['cardNumber'].value,
       exp_month: form['expMonth'].value,
@@ -32,8 +42,10 @@ export class PaymentComponent implements OnInit {
       if (status === 200) {
         let token = response.id;
         console.log(token);
+
         this.chargeCard(token);
-      } else {
+      } 
+      else {
         console.log(response.error.message);
       }
     });
@@ -43,10 +55,12 @@ export class PaymentComponent implements OnInit {
     console.log(token)
     const headers = new HttpHeaders({'token': token, amount: "100"});
     this.http.post('http://localhost:8090/auction/payments/charge', {}, {headers: headers})  
-    // this.http.post('http://localhost:8090/auction/payments/charge', token)
-      .subscribe(resp => {
+      .subscribe(resp => 
+        {
         console.log(resp);
+        this.router.navigate(['/bidder/home']);
       })
   }
 
 }
+

@@ -1,10 +1,47 @@
 <app-header></app-header>
 
-<form>
+
+<section class="Payment">
+  <!DOCTYPE html>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+<div class="container">
+<div class="wrapper">
+<header> Payment</header>
+  <form  class="form">
+      <small class="danger"></small>
+      <div class="field name">
+              <div class="input-area">
+                <input type="text" placeholder="Credit Card #" name="cardNumber">
+              </div>    
+      </div>
+      <div class="field username">
+          <div class="input-area">
+            <input type="text" placeholder="Expiration Month" name="expMonth">
+          </div>    
+      </div>
+      <div class="field email">
+          <div class="input-area">
+            <input type="text" placeholder="Expiration Year" name="expYear">
+          </div>    
+      </div>
+      <div class="field phoneNo">
+          <div class="input-area">
+            <input type="text" placeholder="CVC" name="cvc">  
+          </div>    
+      </div>
+      <button (click)="chargeCreditCard()">Submit</button>
+  </form>
+</div>
+</div>
+
+</section>
+
+<!-- <form>
     <input type="text" placeholder="Credit Card #" name="cardNumber">
     <input type="text" placeholder="Expiration Month" name="expMonth">
     <input type="text" placeholder="Expiration Year" name="expYear">
     <input type="text" placeholder="CVC" name="cvc">
     <button (click)="chargeCreditCard()">Submit</button>
-  </form>
+  </form> -->
   
