@@ -1,18 +1,18 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RoutesRecognized } from '@angular/router';
-import { Observable, switchMap } from 'rxjs';
-import { Image } from '../image';
+import { Router, ActivatedRoute } from '@angular/router';
+import { switchMap } from 'rxjs';
 import { Product } from '../product';
 import { RegistrationService } from '../services/registration.service';
 
 @Component({
-  selector: 'app-auction',
-  templateUrl: './auction.component.html',
-  styleUrls: ['./auction.component.css']
+  selector: 'app-view-auction',
+  templateUrl: './view-auction.component.html',
+  styleUrls: ['./view-auction.component.css']
 })
-export class AuctionComponent implements OnInit {
+export class ViewAuctionComponent implements OnInit {
 
+  
   public products: Product[];
 
   selectedId: number;
@@ -21,7 +21,6 @@ export class AuctionComponent implements OnInit {
 
   // public product: Product = new Product();
 
-  public images: Image[];
 
   editProduct: Product;
   id: number;
@@ -40,14 +39,11 @@ export class AuctionComponent implements OnInit {
   prod: Product;
 
   constructor(private router: Router, 
-              private service: RegistrationService, 
-              private http: HttpClient, 
-              private route: ActivatedRoute) { }
+    private service: RegistrationService, 
+    private http: HttpClient, 
+    private route: ActivatedRoute) { }
 
-               
-
-  ngOnInit()
-   {
+  ngOnInit() {
 
     this.getProducts();
     
@@ -63,6 +59,7 @@ export class AuctionComponent implements OnInit {
     
   }
 
+  
   public getProducts(): void
   {
     this.service.getProducts().subscribe(
@@ -76,24 +73,6 @@ export class AuctionComponent implements OnInit {
   }
 
   
-  viewImage() {
-    this.http.get('http://localhost:8090/auction/image/all') 
-      .subscribe(
-        res => {
-          this.postResponse = res;
-          console.log(this.postResponse);
-          // var bas64String = btoa(String.fromCharCode.apply(null, new Uint8Array(this.postResponse[0].image)));
-          // console.log(bas64String);
-          
-          this.img = this.postResponse.image;
-          this.dbImage = 'data:image/jpeg;base64,' + this.img;
-          console.log(this.dbImage);
-
-        }
-      );
-  }
-
-
   public searchProducts(key: string): void
   {
     console.log(key);
@@ -115,6 +94,10 @@ export class AuctionComponent implements OnInit {
     }
   }
 
+  getAllProducts()
+  {
+    this.getProducts();
+  }
 
 
 }

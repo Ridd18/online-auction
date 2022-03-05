@@ -47,6 +47,33 @@
     padding-left: 10px;
 }
 
+@media screen and (min-width: 100%){
+    .about{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1.5rem;
+    }
+    .about{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .about_Heading{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .about_Image{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .about_Info{
+        padding-top: 0;
+    }
+}
+
 
 .feedback_Heading
 {

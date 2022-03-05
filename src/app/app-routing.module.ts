@@ -17,6 +17,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { FeedbackHomeComponent } from './feedback-home/feedback-home.component';
 import { ViewProductComponent } from './view-product/view-product.component';
 import { AuthenticationGuard } from './authentication.guard';
+import { ViewAuctionComponent } from './view-auction/view-auction.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path:'sellerLogin', component: SellerLoginComponent},
   {path:'adminLogin', component: AdminLoginComponent},
   {path:'auction', component: AuctionComponent},
+  {path:'viewAuction', component: ViewAuctionComponent},
   {path:'aboutUs', component: AboutUsComponent },
   {path:'feedback', component: FeedbackComponent, canActivate:[AuthenticationGuard] },
   {path:'feedbackHome', component: FeedbackHomeComponent },

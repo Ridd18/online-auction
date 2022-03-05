@@ -33,6 +33,7 @@ import { FeedbackHomeComponent } from './feedback-home/feedback-home.component';
 import { ViewProductComponent } from './view-product/view-product.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { PaymentComponent } from './payment/payment.component';
+import { ViewAuctionComponent } from './view-auction/view-auction.component';
 
 
 
@@ -57,6 +58,7 @@ import { PaymentComponent } from './payment/payment.component';
     FeedbackHomeComponent,
     ViewProductComponent,
     PaymentComponent,
+    ViewAuctionComponent,
   
   ],
   imports: [

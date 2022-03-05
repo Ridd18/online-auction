@@ -6,17 +6,17 @@
     </div>
 <div class="myBtnContainer">
 
-   <button class="btn active" onclick="filterSelection('all')">All</button>
+   <button class="btn active" click="getAllProducts()">All</button>
    <form class="search"> 
     <input type="search" (ngModelChange)= "searchProducts(key.value)" #key = "ngModel" ngModel 
     name="key" id="searchName" class="searchProduct" placeholder="Search Product">
   </form>
-
+  <!-- style="width: 100%;" -->
 </div>
 <div class="row" *ngFor= "let product of products">
   <div class="column ">
     <div class="content">
-        <img [src]="['../assets/photos/' + product?.productImageName +'.jpg']" style="width: 100%;">
+        <img [src]="['../assets/photos/' + product?.productImageName +'.jpg']" >
         <h4><b>Name: </b>{{product?.productName}}</h4>
         <p class="m-0"><b>Category: </b>{{product?.categoryName}}</p>
         <p class="m-0"><b>Description: </b>{{product?.productDescription}}</p>
@@ -27,9 +27,9 @@
             <ul class = "links">
             <li><a class="nav-link"  [routerLink]="['/viewProduct/', product.id]" routerLinkActive="active" target="_blank">View Product </a></li>
             </ul>
-            <ul class = "links">
+            <!-- <ul class = "links">
             <li><a class="nav-link" [routerLink]="['/seller/updateProducts/', product.id]"  routerLinkActive="active" target="_blank">Update Product </a></li>
-            </ul>
+            </ul> -->
         </div>
     </div>
   </div>

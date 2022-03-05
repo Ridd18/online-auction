@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Buyer } from '../buyer';
 import { Seller } from '../seller';
-import { JwtModule } from '@auth0/angular-jwt';
 import { Admin } from '../admin';
 import { Product } from '../product';
 import { Image } from '../image';

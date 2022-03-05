@@ -1,5 +1,5 @@
   
-#topnav
+.topnav
 {
     
     width: 100%;
@@ -9,14 +9,10 @@
     display: flex;
     justify-content: center;
     background-size: cover;
-    background-position: center;
-    
-    
+    background-position: center;    
 
 }
 
-      
-  
 li
 {
    float: left;
@@ -45,4 +41,27 @@ ul
     display: inline-block;
     padding: 20px;
     
+}
+
+@media screen and (min-width: 100%){
+
+    .topnav{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1.5rem;
+    }
+    ul{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /* ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    } */
+    a{
+        padding-top: 0;
+    }
 }

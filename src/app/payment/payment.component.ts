@@ -22,15 +22,15 @@ export class PaymentComponent implements OnInit {
   constructor( private http: HttpClient,
                 private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+
+
   }
 
    chargeCreditCard() 
   {
     let form = document.getElementsByTagName("form")[0];
     
-    
-    // const paymentIntent = await this.stripe.paymentIntents.create({
 
     (<any>window).Stripe.card.createToken(
       {
