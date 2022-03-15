@@ -1,36 +1,35 @@
 <app-header></app-header>
 
 <div class="header-text">
-    <h1> List of Bidders </h1>
+  <h1>List of Bidders</h1>
 </div>
-
-
-    <div class="container" id="main-container">
-        <div class="row">
-            <div *ngFor= "let buyer of buyers" class="col-md-6 col-xl-3">
-                
-                    <div class="card m-b-30">
-                        <div class="card bg-c-blue order-card">
-                            <div class="card-body row">
-                                <div class="card-details">
-                                    <h5>Name:&nbsp; {{buyer?.name}}</h5>
-                                    <p class="m-0">Username: &nbsp; {{buyer?.username}}</p>
-                                    <p class="m-0">Email: &nbsp; {{buyer?.email}}</p>
-                                    <p class="m-0">PhoneNo: &nbsp; {{buyer?.phoneNo}}</p>
-                                </div>
-                            </div>
-                            <div class="float-right btn-group btn-group-sm">
-                                <a (click)=" onDeleteBidder(buyer.id)" class="btn btn-secondary tooltips"  
-                                data-original-title="Delete">
-                                    <i class="glyphicon glyphicon-home"></i>
-                                    Delete
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
+<div class="body">
+  <div class="container" class="main-container">
+    <div class="row">
+      <div *ngFor="let buyer of buyers" class="col-md-6 col-xl-3">
+        <div class="card m-b-30">
+          <div class="card bg-c-blue order-card">
+            <div class="card-body row">
+              <div class="card-details">
+                <h5>Name:&nbsp; {{ buyer?.name }}</h5>
+                <p class="m-0">Username: &nbsp; {{ buyer?.username }}</p>
+                <p class="m-0">Email: &nbsp; {{ buyer?.email }}</p>
+                <p class="m-0">PhoneNo: &nbsp; {{ buyer?.phoneNo }}</p>
+              </div>
             </div>
+            <div class="float-right btn-group btn-group-sm">
+              <a
+                (click)="onDeleteBidder(buyer.id)"
+                class="btn btn-secondary tooltips"
+                data-original-title="Delete"
+              >
+                <i class="glyphicon glyphicon-home"></i>
+                Delete
+              </a>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-
-
+  </div>
+</div>

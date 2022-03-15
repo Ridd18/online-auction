@@ -7,17 +7,54 @@ import { RegistrationService } from 'src/app/services/registration.service';
 @Component({
   selector: 'app-admin-home',
   templateUrl: './admin-home.component.html',
-  styleUrls: ['./admin-home.component.css']
+  styleUrls: ['./admin-home.component.css'],
 })
 export class AdminHomeComponent implements OnInit {
+  buyerCount: any;
+  sellerCount: any;
+  productCount: any;
 
+  constructor(private router: Router, private service: RegistrationService) {}
 
-
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit() {
+    this.getBuyerCount();
+    this.getSellerCount();
+    this.getProductCount();
   }
 
+  public getBuyerCount(): any {
+    this.service.countBuyers().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.buyerCount = response;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
 
+  public getSellerCount(): any {
+    this.service.countSellers().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.sellerCount = response;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
 
+  public getProductCount(): any {
+    this.service.countProducts().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.productCount = response;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
 }

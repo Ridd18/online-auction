@@ -1,32 +1,39 @@
 <app-header></app-header>
 
 <div class="header-text">
-    <h1> List of Products </h1>
+  <h1>List of Products</h1>
 </div>
 
-
-<div class="main" >
-
-<div class="row" *ngFor= "let product of products">
-  <div class="column ">
-    <div class="content">
-        <img [src]="['../assets/photos/' + product?.productImageName+'.jpg']" style="width: 100%;">
-        <h4><b>Name: </b>{{product?.productName}}</h4>
-        <p class="m-0"><b>Category: </b>{{product?.categoryName}}</p>
-        <p class="m-0"><b>Description: </b>{{product?.productDescription}}</p>
-        <p class="m-0"><b>Start Date: </b>{{product?.startDate}}</p>
-        <p class="m-0"><b>End Date: </b>{{product?.endDate}}</p>
-        <p class="m-0"><b>Start Bid: </b>{{product?.startBid}}</p>
+<div class="main">
+  <div class="row" *ngFor="let product of products">
+    <div class="column">
+      <div class="content">
+        <img
+          [src]="['../assets/photos/' + product?.productImageName + '.jpg']"
+        />
+        <h4><b>Name: </b>{{ product?.productName }}</h4>
+        <p class="m-0"><b>Category: </b>{{ product?.categoryName }}</p>
+        <p class="m-0"><b>Description: </b>{{ product?.productDescription }}</p>
+        <p class="m-0"><b>Start Date: </b>{{ product?.startDate }}</p>
+        <p class="m-0"><b>End Date: </b>{{ product?.endDate }}</p>
+        <p class="m-0"><b>Start Bid: </b>{{ product?.startBid }}</p>
         <div class="productFunctions">
-            <ul class = "links">
-            <li><a class="nav-link"  (click)=" onDeleteProduct(product.id)" routerLinkActive="active" target="_blank"> Delete  </a></li>
-            </ul>
+          <ul class="links">
+            <li>
+              <a
+                class="nav-link"
+                (click)="onDeleteProduct(product.id)"
+                routerLinkActive="active"
+                target="_blank"
+              >
+                Delete
+              </a>
+            </li>
+          </ul>
         </div>
+      </div>
     </div>
   </div>
-</div>  
- 
-
 </div>
 
 <!-- <div class="container" id="main-container">
@@ -58,4 +65,3 @@
         </div>
     </div>
 </div> -->
-

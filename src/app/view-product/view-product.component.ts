@@ -19,7 +19,6 @@ export class ViewProductComponent implements OnInit {
   deleteProduct: Product;
 
   public product: Product = new Product();
-  
 
   id: number;
 
@@ -27,20 +26,11 @@ export class ViewProductComponent implements OnInit {
 
   public buyer: Buyer = new Buyer();
   
- 
-
-  
-
   email: string;
 
   selectedEmail: string;
 
-
-
   bidder$: any;
-
-
-
 
   uploadedImage: File;
   dbImage: any;
