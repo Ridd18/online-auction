@@ -19,46 +19,53 @@ import { ViewProductComponent } from './view-product/view-product.component';
 import { AuthenticationGuard } from './authentication.guard';
 import { ViewAuctionComponent } from './view-auction/view-auction.component';
 
-
 const routes: Routes = [
-
-  {path:'', component: HomeComponent, pathMatch:'full' },
-  {path:'login', component: LoginComponent},
-  {path:'logout', component: LogoutComponent},
-  {path:'registration', component: RegistrationComponent},
-  {path:'bidderRegistration', component: BidderRegistrationComponent},
-  {path:'sellerRegistration' , component: SellerRegistrationComponent},
-  {path:'bidderLogin', component: BidderLoginComponent},
-  {path:'sellerLogin', component: SellerLoginComponent},
-  {path:'adminLogin', component: AdminLoginComponent},
-  {path:'auction', component: AuctionComponent},
-  {path:'viewAuction', component: ViewAuctionComponent},
-  {path:'aboutUs', component: AboutUsComponent },
-  {path:'feedback', component: FeedbackComponent, canActivate:[AuthenticationGuard] },
-  {path:'feedbackHome', component: FeedbackHomeComponent },
-  {path:'viewProduct/:id', component: ViewProductComponent },
-  { 
-    path: 'admin', 
-    loadChildren: () => import('./administration/administration.module').then(m => m.AdministrationModule) 
+  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'logout', component: LogoutComponent },
+  { path: 'registration', component: RegistrationComponent },
+  { path: 'bidderRegistration', component: BidderRegistrationComponent },
+  { path: 'sellerRegistration', component: SellerRegistrationComponent },
+  { path: 'bidderLogin', component: BidderLoginComponent },
+  { path: 'sellerLogin', component: SellerLoginComponent },
+  { path: 'adminLogin', component: AdminLoginComponent },
+  { path: 'auction', component: AuctionComponent },
+  { path: 'viewAuction', component: ViewAuctionComponent },
+  { path: 'aboutUs', component: AboutUsComponent },
+  {
+    path: 'feedback',
+    component: FeedbackComponent,
+    canActivate: [AuthenticationGuard],
+  },
+  { path: 'feedbackHome', component: FeedbackHomeComponent },
+  {
+    path: 'viewProduct/:id',
+    component: ViewProductComponent,
+    canActivate: [AuthenticationGuard],
+  },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./administration/administration.module').then(
+        (m) => m.AdministrationModule
+      ),
   },
 
   {
-    path:'bidder',
-    loadChildren:() => import('./bidder/bidder.module').then(m => m.BidderModule)
-  },
-  
-  {
-    path:'seller',
-    loadChildren:() => import('./seller/seller.module').then(m => m.SellerModule)
+    path: 'bidder',
+    loadChildren: () =>
+      import('./bidder/bidder.module').then((m) => m.BidderModule),
   },
 
-  
-  
+  {
+    path: 'seller',
+    loadChildren: () =>
+      import('./seller/seller.module').then((m) => m.SellerModule),
+  },
 ];
 
 @NgModule({
-  
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

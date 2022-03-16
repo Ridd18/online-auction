@@ -7,6 +7,8 @@ import { SharedModule } from '../shared/shared.module';
 import { BidderNavComponent } from './bidder-nav/bidder-nav.component';
 import { AddBidComponent } from './add-bid/add-bid.component';
 import { BidComponent } from './bid/bid.component';
+import { BidderViewAuctionComponent } from './bidder-view-auction/bidder-view-auction.component';
+import { BidderViewProductComponent } from './bidder-view-product/bidder-view-product.component';
 
 
 
@@ -16,6 +18,8 @@ import { BidComponent } from './bid/bid.component';
     BidderNavComponent,
     AddBidComponent,
     BidComponent,
+    BidderViewAuctionComponent,
+    BidderViewProductComponent,
   ],
   imports: [
    

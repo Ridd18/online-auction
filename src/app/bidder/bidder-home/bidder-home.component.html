@@ -2,38 +2,127 @@
 
 <!-- <div class="data" *ngFor= "let buyer of buyers"></div> -->
 <div class="header-text">
-    <h1> Bidder DashBoard </h1>
+  <h1>Bidder DashBoard</h1>
 </div>
 
+<input
+  type="hidden"
+  name="id"
+  ngModel="{{ buyer.id }}"
+  class="form-control"
+  id="id"
+  placeholder="ID"
+/>
 
-<input type="hidden" name="id" ngModel="{{buyer.id}}" class="form-control" id="id" placeholder="ID">
+<input
+  type="hidden"
+  name="email"
+  ngModel="{{ buyer.email }}"
+  class="form-control"
+  id="id"
+  placeholder="Email"
+/>
 
-<input type="hidden" name="email" ngModel="{{buyer.email}}" class="form-control" id="id" placeholder="Email">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bidder Panel</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- <script src="../../../assets/javaScript/admin.js"></script> -->
 
-<section class="nav">
-    <div id="topnav">
-    <nav>
-     <ul>
-        <li><a class="nav-link" [routerLink]="['/bidder/bidderHome/' , buyer.email]" routerLinkActive="active" target="_blank">Home</a></li>
-        <li><a class="nav-link" routerLink="/bidder/viewAuction" routerLinkActive="active" target="_blank">Auctions</a></li>
-         <li><a class="nav-link" routerLink="/logout" routerLinkActive="active" target="_blank" >Logout</a></li>
-     </ul>
-    </nav>
+    <script
+      src="https://kit.fontawesome.com/ec5329f90e.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <!---SIDEBAR START-->
+    <div class="container">
+      <div class="navigation">
+        <!--<img src="logo.png" alt="">-->
+        <ul>
+          <li>
+            <a class="nav-link" routerLink="/bidder" routerLinkActive="active">
+              <span class="icon"><i class="fa fa-user"></i></span>
+              <span class="title"><h2>Bidder Panel</h2></span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="nav-link"
+              routerLink="['/bidderHome/', buyer.email]"
+              routerLinkActive="active"
+            >
+              <span class="icon"><i class="fa fa-home"></i></span>
+              <span class="title">Dashboard</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="nav-link"
+              routerLink="/bidder/viewAuction"
+              routerLinkActive="active"
+            >
+              <span class="icon"><i class="fas fa-eye"></i></span>
+              <span class="title">Auctions</span>
+            </a>
+          </li>
+          <li>
+            <a
+              (click)="logout()"
+              class="nav-link"
+              routerLink="/logout"
+              routerLinkActive="active"
+            >
+              <span class="icon"><i class="fa fa-sign-out"></i></span>
+              <span class="title">Logout</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-    </section>
-    <div class="row">
-        <div class="column">
-            <div class="content">
-                <h4><b>Name: </b>{{buyer?.name}}</h4>
-                <p class="m-0"><b>Username: </b>{{buyer?.username}}</p>
-                <p class="m-0"><b>Email: </b>{{buyer?.email}}</p>
-                <p class="m-0"><b> Phone No: </b>{{buyer?.phoneNo}}</p>
-                
-            </div>
+    <!----SIDEBAR END-->
+
+    <div class="main">
+      <div class="topbar">
+        <div class="toggle" onclick="toggleMenu();"></div>
+      </div>
+
+      <div class="cardBox">
+        <div class="card">
+          <div>
+            <div class="numbers">{{ buyer?.name }}</div>
+            <div class="cardName">{{ buyer?.username }}</div>
+            <div class="cardName">{{ buyer?.email }}</div>
+            <div class="cardName">{{ buyer?.phoneNo }}</div>
+          </div>
+          <div class="iconBox">
+            <i class="fas fa-user" aria-hidden="true"></i>
+          </div>
         </div>
-    </div>
 
-    <!-- <app-add-bid></app-add-bid> -->
-<!-- <app-bidder-bidder-nav></app-bidder-bidder-nav> -->
+        <!-- </div> -->
+      </div>
+    </div>
+  </body>
+</html>
+
+<router-outlet></router-outlet>
+<!-- <app-get-bidders></app-get-bidders> -->

@@ -1,1 +1,36 @@
-<p>bidder-nav works!</p>
+<section class="nav">
+  <div id="topnav">
+    <nav>
+      <ul>
+        <li>
+          <a
+            class="nav-link"
+            [routerLink]="['/bidder/bidderHome/', buyer.email]"
+            routerLinkActive="active"
+            target="_blank"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link"
+            routerLink="/bidder/viewAuction"
+            routerLinkActive="active"
+            target="_blank"
+            >Auctions</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="logout()"
+            class="nav-link"
+            routerLink="/logout"
+            routerLinkActive="active"
+            target="_blank"
+            >Logout</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</section>

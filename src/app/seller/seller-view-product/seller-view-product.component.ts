@@ -1,18 +1,17 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Bid } from '../bid';
-import { Buyer } from '../buyer';
-import { Product } from '../product';
-import { RegistrationService } from '../services/registration.service';
+import { Bid } from 'src/app/bid';
+import { Buyer } from 'src/app/buyer';
+import { Product } from 'src/app/product';
+import { RegistrationService } from 'src/app/services/registration.service';
 
 @Component({
-  selector: 'app-view-product',
-  templateUrl: './view-product.component.html',
-  styleUrls: ['./view-product.component.css'],
+  selector: 'app-seller-view-product',
+  templateUrl: './seller-view-product.component.html',
+  styleUrls: ['./seller-view-product.component.css'],
 })
-export class ViewProductComponent implements OnInit {
+export class SellerViewProductComponent implements OnInit {
   public products: Product[];
 
   public bid: Bid;
@@ -83,7 +82,7 @@ export class ViewProductComponent implements OnInit {
       },
       (error) => {
         // this.getMaxBid(id);
-        this.goToPayment(this.id);
+        // this.goToPayment(this.id);
 
         console.log(error);
       }
@@ -91,14 +90,14 @@ export class ViewProductComponent implements OnInit {
   }
 
   public goBackToAuction() {
-    this.router.navigate(['/auction']);
+    this.router.navigate(['/seller/viewAuction']);
   }
 
   gotToAddBid() {
     this.router.navigate(['/bidder/bid/', this.product.id]);
   }
 
-  goToPayment(id: number) {
-    this.router.navigate(['/bidder/payment/', id]);
-  }
+  // goToPayment(id: number) {
+  //   this.router.navigate(['/bidder/payment/', id]);
+  // }
 }

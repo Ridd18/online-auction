@@ -1,30 +1,20 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Bid } from '../bid';
-import { Buyer } from '../buyer';
-import { Product } from '../product';
-import { RegistrationService } from '../services/registration.service';
+import { Bid } from 'src/app/bid';
+import { Buyer } from 'src/app/buyer';
+import { Product } from 'src/app/product';
+import { RegistrationService } from 'src/app/services/registration.service';
 
 @Component({
-  selector: 'app-view-product',
-  templateUrl: './view-product.component.html',
-  styleUrls: ['./view-product.component.css'],
+  selector: 'app-bidder-view-product',
+  templateUrl: './bidder-view-product.component.html',
+  styleUrls: ['./bidder-view-product.component.css'],
 })
-export class ViewProductComponent implements OnInit {
+export class BidderViewProductComponent implements OnInit {
   public products: Product[];
 
-  public bid: Bid;
-
   public maxBid: Bid;
-
-  bidProductName: string;
-
-  public bids: Bid[];
-
-  editProduct: Product;
-  deleteProduct: Product;
 
   public product: Product = new Product();
 
@@ -33,21 +23,6 @@ export class ViewProductComponent implements OnInit {
   public buyers: Buyer[];
 
   public buyer: Buyer = new Buyer();
-
-  email: string;
-
-  selectedEmail: string;
-
-  bidder$: any;
-
-  uploadedImage: File;
-  dbImage: any;
-  postResponse: any;
-  successResponse: string;
-  image: any;
-  img: any;
-  hero$: any;
-  product$: any;
 
   constructor(
     private router: Router,
@@ -91,7 +66,7 @@ export class ViewProductComponent implements OnInit {
   }
 
   public goBackToAuction() {
-    this.router.navigate(['/auction']);
+    this.router.navigate(['/bidder/viewAuction']);
   }
 
   gotToAddBid() {

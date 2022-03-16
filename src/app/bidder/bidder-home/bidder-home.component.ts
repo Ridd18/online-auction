@@ -9,17 +9,13 @@ import { RegistrationService } from 'src/app/services/registration.service';
 @Component({
   selector: 'app-bidder-home',
   templateUrl: './bidder-home.component.html',
-  styleUrls: ['./bidder-home.component.css']
+  styleUrls: ['./bidder-home.component.css'],
 })
 export class BidderHomeComponent implements OnInit {
-
-
-
-
   public buyers: Buyer[];
 
   public buyer: Buyer = new Buyer();
-  
+
   id: number;
 
   email: string;
@@ -28,50 +24,25 @@ export class BidderHomeComponent implements OnInit {
 
   bidder$: any;
 
-  postResponse: any;
-  successResponse: string;
- 
-
-  constructor(private router: Router, 
+  constructor(
+    private router: Router,
     private service: RegistrationService,
     private http: HttpClient,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-
-
     this.getBuyers();
 
-    this.route.params
-    .subscribe((params: Params) =>
-    {
+    this.route.params.subscribe((params: Params) => {
       this.email = params['email'];
-      console.log(this.email)
-      
-    }
-  )
+      console.log(this.email);
+    });
 
-  this.getBuyer(this.email);
-  // this.service.getBuyer(this.email)
-  // .subscribe(data => 
-  //   {
-  //   console.log(data)
-  //   this.buyer = data;
-    
-  //   this.selectedBidder = this.buyer.username;
-  //   console.log(this.selectedBidder)
-  // },
-  //  error => console.log(error)
-  //  );
-
-
-    // this.getBuyer(this.email);
-
+    this.getBuyer(this.email);
   }
 
-  
-  public getBuyers(): void
-  {
+  public getBuyers(): void {
     this.service.getBuyers().subscribe(
       (response: Buyer[]) => {
         this.buyers = response;
@@ -82,38 +53,36 @@ export class BidderHomeComponent implements OnInit {
     );
   }
 
-    public getBidder(id: number): void
-    {
-      this.service.getBidder(this.id)
-      .subscribe(data => 
-      {
-      console.log(data)
-      this.buyer = data;
+  public getBidder(id: number): void {
+    this.service.getBidder(this.id).subscribe(
+      (data) => {
+        console.log(data);
+        this.buyer = data;
       },
-      error => console.log(error)
-      );
-    }
+      (error) => console.log(error)
+    );
+  }
 
-    public getBuyer(email: string): void
-    {
-      this.service.getBuyer(this.email)
-      .subscribe(data => 
-      {
-      console.log(data)
-      this.buyer = data;
+  public getBuyer(email: string): void {
+    this.service.getBuyer(this.email).subscribe(
+      (data) => {
+        console.log(data);
+        this.buyer = data;
 
-      this.selectedBidder = this.buyer.username;
+        this.selectedBidder = this.buyer.username;
 
-    
-   
-      localStorage.setItem('bidderName' , this.selectedBidder);
+        localStorage.setItem('bidderName', this.selectedBidder);
 
-      // sessionStorage.setItem('bidderName' , this.selectedBidder);
+        // sessionStorage.setItem('bidderName' , this.selectedBidder);
 
-      console.log(this.selectedBidder)
-
+        console.log(this.selectedBidder);
       },
-      error => console.log(error)
-      );
-    }
+      (error) => console.log(error)
+    );
+  }
+
+  logout() {
+    localStorage.removeItem('bidderName');
+    localStorage.removeItem('Bidder');
+  }
 }
