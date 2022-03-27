@@ -21,6 +21,7 @@ import { ViewAuctionComponent } from './view-auction/view-auction.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'registration', component: RegistrationComponent },

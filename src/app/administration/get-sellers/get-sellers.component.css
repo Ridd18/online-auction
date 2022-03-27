@@ -36,6 +36,6 @@ p {
 }
 
 .body {
-  height: 460px;
+  /* height: 460px; */
   background: turquoise;
 }

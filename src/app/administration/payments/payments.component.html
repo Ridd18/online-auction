@@ -1,0 +1,27 @@
+<app-header></app-header>
+
+<div class="header-text">
+  <h1>List of Payments</h1>
+</div>
+<div class="body">
+  <div class="container" id="main-container">
+    <div class="row">
+      <div *ngFor="let payment of payments" class="col-md-6 col-xl-3">
+        <div class="card m-b-30">
+          <div class="card bg-c-blue order-card">
+            <div class="card-body row">
+              <div class="col-6 card-title align-self-center mb-0">
+                <h5>
+                  <p><b>Name: </b>{{ payment?.name }}</p>
+                </h5>
+                <p class="m-0">Card Number: &nbsp; {{ payment?.cardNumber }}</p>
+                <p class="m-0">Payment Id: &nbsp; {{ payment?.paymentId }}</p>
+                <p class="m-0">Bid Amount: &nbsp; {{ payment?.bidAmount }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

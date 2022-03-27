@@ -1,41 +1,81 @@
 <app-header></app-header>
-<app-navigation></app-navigation>
+<!-- <app-navigation></app-navigation> -->
 
 <!DOCTYPE html>
 <html>
   <head>
     <title>Online Feedback Form</title>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <style>
- 
-    </style>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+      rel="stylesheet"
+    />
+    <style></style>
   </head>
   <body>
     <div class="testbox">
-      <form #addFeedbackForm = "ngForm" (ngSubmit)="addFeedback(addFeedbackForm)" >
-        <h1> Feedback Form</h1>
-        <p>Thank you for taking the time to fill in our online feedback form. By providing us your feedback, you are helping us understand what we do well and what improvements we need to implement.</p> -->
+      <form #addFeedbackForm="ngForm" (ngSubmit)="addFeedback(addFeedbackForm)">
+        <h1>Feedback Form</h1>
+        <p>
+          Thank you for taking the time to fill in our online feedback form. By
+          providing us your feedback, you are helping us understand what we do
+          well and what improvements we need to implement.
+        </p>
+
         <div class="form-group">
-           <h4> <label for="firstName">First Name</label></h4>
-            <input  ngModel name="firstName" type="text"  placeholder="First Name"  required>
+          <h4><label for="firstName">First Name</label></h4>
+          <input
+            ngModel
+            name="firstName"
+            type="text"
+            placeholder="First Name"
+            required
+          />
         </div>
         <div class="form-group">
-            <h4><label for="lastName">Last Name</label></h4>
-            <input  ngModel name="lastName" type="text"  placeholder="Last Name" required>
+          <h4><label for="lastName">Last Name</label></h4>
+          <input
+            ngModel
+            name="lastName"
+            type="text"
+            placeholder="Last Name"
+            required
+          />
         </div>
         <div class="form-group">
-            <h4><label for="email"> Email <span>*</span></label></h4>
-            <input  ngModel name="email" type="text"  placeholder="Enter your Email " required>
+          <h4>
+            <label for="email"> Email <span>*</span></label>
+          </h4>
+          <input
+            ngModel
+            name="email"
+            type="text"
+            placeholder="Enter your Email "
+            required
+          />
         </div>
         <div class="form-group">
-           <h4> <label for="feedback"> How satisfied were you with: <span>*</span></label></h4>
-            <textarea ngModel name="feedback" rows="5" cols="60" required ></textarea>        
+          <h4>
+            <label for="feedback">
+              How satisfied were you with: <span>*</span></label
+            >
+          </h4>
+          <textarea
+            ngModel
+            name="feedback"
+            rows="5"
+            cols="60"
+            required
+          ></textarea>
         </div>
-         <div class="btn-block">
-            <a class="nav-link" (click)= "addFeedback(addFeedbackForm)" >Submit</a>
+        <div class="btn-block">
+          <a class="nav-link" (click)="addFeedback(addFeedbackForm)">Submit</a>
         </div>
-     </form>
+      </form>
     </div>
   </body>
 </html>

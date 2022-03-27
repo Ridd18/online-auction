@@ -13,6 +13,7 @@ export class AdminHomeComponent implements OnInit {
   buyerCount: any;
   sellerCount: any;
   productCount: any;
+  paymentCount: any;
 
   constructor(private router: Router, private service: RegistrationService) {}
 
@@ -20,6 +21,7 @@ export class AdminHomeComponent implements OnInit {
     this.getBuyerCount();
     this.getSellerCount();
     this.getProductCount();
+    this.getPaymentCount();
   }
 
   public getBuyerCount(): any {
@@ -51,6 +53,18 @@ export class AdminHomeComponent implements OnInit {
       (response: any) => {
         console.log(response);
         this.productCount = response;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
+  public getPaymentCount(): any {
+    this.service.countPayments().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.paymentCount = response;
       },
       (error: HttpErrorResponse) => {
         alert(error.message);

@@ -219,4 +219,7 @@ export class RegistrationService {
       `${this.apiServerUrl}/auction/payment/find/${id}`
     );
   }
+  public countPayments(): Observable<any> {
+    return this.http.get<any>(`${this.apiServerUrl}/auction/payment/count`);
+  }
 }

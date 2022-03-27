@@ -23,6 +23,7 @@ import { Bid } from '../bid';
 export class PaymentComponent implements OnInit {
   public payments: Payment[];
 
+  selectedBidder: string;
   public bid: Bid;
 
   public maxBid: Bid;
@@ -153,7 +154,7 @@ export class PaymentComponent implements OnInit {
       (res) => {
         console.log(res);
         // localStorage.setItem('token', res.token)
-        this.router.navigate(['/bidder']);
+        this.router.navigate(['/bidder/viewAuction']);
       },
       (err) => {
         console.log(err);
@@ -208,6 +209,24 @@ export class PaymentComponent implements OnInit {
       (error) => {
         console.log(error);
       }
+    );
+  }
+
+  public getBuyer(email: string): void {
+    this.service.getBuyer(this.email).subscribe(
+      (data) => {
+        console.log(data);
+        this.buyer = data;
+
+        this.selectedBidder = this.buyer.username;
+
+        localStorage.setItem('bidderName', this.selectedBidder);
+
+        // sessionStorage.setItem('bidderName' , this.selectedBidder);
+
+        console.log(this.selectedBidder);
+      },
+      (error) => console.log(error)
     );
   }
 }

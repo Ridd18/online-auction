@@ -8,7 +8,6 @@
   <i class="fa fa-exclamation-triangle"></i>
   <p id="card-error">Card error</p>
 </div>
-
 <div id="form-container">
   <form #addForm="ngForm" (ngSubmit)="addPayment(addForm)" class="form">
     <div id="card-front">
@@ -20,7 +19,14 @@
         <span id="card-image"> </span>
       </div>
       <!--- end card image container --->
-
+      <input
+        type="hidden"
+        name="bidAmount"
+        ngModel="{{ bid?.bidAmount }}"
+        class="form-control"
+        id="bidAmount"
+        placeholder="bid"
+      />
       <label for="card-number"> Card Number </label>
       <input
         type="text"

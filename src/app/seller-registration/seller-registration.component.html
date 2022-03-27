@@ -1,48 +1,84 @@
-
 <app-header></app-header>
 
 <app-navigation></app-navigation>
 
 <section class="Registration">
-                    <!DOCTYPE html>
+  <!DOCTYPE html>
 
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-                <div class="container">
-                <div class="wrapper">
-                <header>Registration Form</header>
-                    <form #addForm ="ngForm" (ngSubmit)="registerUser(addForm)" class="form">
-                        <small class="danger">{{msg}}</small>
-                        <div class="field name">
-                                <div class="input-area">
-                                        <input ngModel name="name" type="text" placeholder="Enter name" id="name" />  
-                                </div>    
-                        </div>
-                        <div class="field username">
-                            <div class="input-area">
-                                    <input  ngModel name="email" type="email" placeholder="Enter email" id="email" />
-                            </div>    
-                        </div>
-                        <div class="field email">
-                            <div class="input-area">
-                                    <input ngModel name="username" type="text" placeholder="Enter Username" id="username" />
-                            </div>    
-                        </div>
-                        <div class="field phoneNo">
-                            <div class="input-area">
-                                    <input ngModel name="phoneNo" type="text" placeholder="Enter Phone Number" id="PhneNo" />   
-                            </div>    
-                        </div>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <div class="container">
+    <div class="wrapper">
+      <header>Registration Form</header>
+      <form #addForm="ngForm" (ngSubmit)="registerUser(addForm)" class="form">
+        <small class="danger">{{ msg }}</small>
+        <div class="field name">
+          <div class="input-area">
+            <i class="icon fas fa-user"></i>
+            <input
+              ngModel
+              name="name"
+              type="text"
+              placeholder="Enter name"
+              id="name"
+            />
+          </div>
+        </div>
+        <div class="field username">
+          <div class="input-area">
+            <i class="icon fas fa-envelope"></i>
+            <input
+              ngModel
+              name="email"
+              type="email"
+              placeholder="Enter email"
+              id="email"
+            />
+          </div>
+        </div>
+        <div class="field email">
+          <div class="input-area">
+            <i class="icon fas fa-user"></i>
+            <input
+              ngModel
+              name="username"
+              type="text"
+              placeholder="Enter Username"
+              id="username"
+            />
+          </div>
+        </div>
+        <div class="field phoneNo">
+          <div class="input-area">
+            <i class="icon fas fa-phone"></i>
 
-                        <div class="field password">
-                            <div class="input-area">
-                                <input ngModel name="password" type="password" placeholder="Enter Password" id="password"/>
-                            </div>
-                    
-                        </div>
-                    <input type="submit" value="Register">
-                    </form>
-                </div>
-                </div>
-   
+            <input
+              ngModel
+              name="phoneNo"
+              type="text"
+              placeholder="Enter Phone Number"
+              id="PhneNo"
+            />
+          </div>
+        </div>
+
+        <div class="field password">
+          <div class="input-area">
+            <i class="icon fas fa-lock"></i>
+            <input
+              ngModel
+              name="password"
+              type="password"
+              placeholder="Enter Password"
+              id="password"
+            />
+          </div>
+        </div>
+        <input type="submit" value="Register" />
+      </form>
+    </div>
+  </div>
 </section>
 <app-footer></app-footer>

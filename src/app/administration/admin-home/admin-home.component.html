@@ -80,6 +80,16 @@
               <span class="title">Auction</span>
             </a>
           </li>
+          <li>
+            <a
+              class="nav-link"
+              routerLink="/admin/payments"
+              routerLinkActive="active"
+            >
+              <span class="icon"><i class="fas fa-rupee"></i></span>
+              <span class="title">Payments</span>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -120,7 +130,7 @@
         </div>
         <div class="card">
           <div>
-            <div class="numbers">10</div>
+            <div class="numbers">{{ this.paymentCount }}</div>
             <div class="cardName">PAYMENTS</div>
           </div>
           <div class="iconBox">

@@ -8,6 +8,7 @@ import { GetBiddersComponent } from './get-bidders/get-bidders.component';
 import { GetSellersComponent } from './get-sellers/get-sellers.component';
 import { ViewAuctionsComponent } from './view-auctions/view-auctions.component';
 import { FormsModule } from '@angular/forms';
+import { PaymentsComponent } from './payments/payments.component';
 
 
 
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     AdminHomeComponent,
     GetBiddersComponent,
     GetSellersComponent,
-    ViewAuctionsComponent
+    ViewAuctionsComponent,
+    PaymentsComponent
   ],
   imports: [
     CommonModule,
